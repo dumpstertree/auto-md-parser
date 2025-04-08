@@ -2,6 +2,8 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
+	"fmt"
 	"io/fs"
 	"os"
 	"path/filepath"
@@ -14,14 +16,36 @@ import (
 	"golang.org/x/text/language"
 )
 
-const outputPath = "/media/dumpstertree/67FF-9C76/Development/Docker/mdBook/content/src/"
-const inputPath = "./layout/"
+var outputPath = "/media/dumpstertree/67FF-9C76/Development/Docker/mdBook/content/src/"
+var inputPath = "./layout/"
+
 const tempPath = "./.temp/"
 const summaryName = "SUMMARY"
 
 // main
 func main() {
 
+	// variables declaration
+	var inFlag string
+	var outFlag string
+
+	// flags declaration using flag package
+	flag.StringVar(&inFlag, "i", "", "")
+	flag.StringVar(&outFlag, "o", "", "")
+	flag.Parse()
+	if inFlag == "" {
+		fmt.Println("No Input Path Provided")
+		return
+	}
+	if outFlag == "" {
+		fmt.Println("No Output Path Provided")
+		return
+	}
+
+	outputPath = outFlag
+	inputPath = inFlag
+
+	// generate
 	paths := find(inputPath, ".layout")
 	layouts := loadLayouts(paths)
 	spreadsheets := loadSpreadheet(layouts)
