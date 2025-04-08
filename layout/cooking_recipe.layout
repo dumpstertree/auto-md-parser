@@ -1,0 +1,103 @@
+{
+    "Title": "Recipes",
+    "URL": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSAyak9YlStJt0W2QiXNHVF8FODXyzkGh0HTz9XkhPPqGQ7IycIP1MG9gofJCHmb8c_vAcLKiqcYQXQ/pub?output=xlsx",
+    "Path": "Cooking/Recipes/Bulk",
+    "IncludeSheets" : [
+    ],
+    "ExcludeSheets" : [
+        "Ingredients",
+        "Results"   
+    ],
+    "sections": [
+        {
+            "type"      : "subheader",
+            "content"   : "Servings"
+        },
+        {
+            "type": "paragraph",
+            "rowmin"    : 2,
+            "rowmax"    : 2,
+            "content"   : "Number Of Servings: @C"
+        },
+        {
+            "type"      : "subheader",
+            "content"   : "Cost Breakdown"
+        },
+        {
+            "type"      : "table",
+            "rowmin"    : 5,
+            "content"   : [
+                {
+                    "header": "Ingredient",
+                    "content": "@A"
+                },
+                {
+                    "header": "Price (oz)",
+                    "content": "@B"
+                },
+                {
+                    "header": "Num Oz",
+                    "content": "@C"
+                },
+                {
+                    "header": "Cost",
+                    "content": "@D"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "rowmin"    : 2,
+            "rowmax"    : 2,
+            "content"   : "Total Cost: @B"
+        },
+        {
+            "type": "paragraph",
+            "rowmin"    : 2,
+            "rowmax"    : 2,
+            "content"   : "Cost Of Servings: @D"
+        },
+        {
+            "type"      : "subheader",
+            "content"   : "Nutrition Breakdown"
+        },
+        {
+            "type"      : "table",
+            "rowmin"    : 5,
+            "content"   : [
+                {
+                    "header": "Ingredient",
+                    "content": "@A"
+                },
+                {
+                    "header": "Calories (oz)",
+                    "content": "@B"
+                },
+                {
+                    "header": "Protien (oz)",
+                    "content": "@C"
+                },
+                {
+                    "header": "Carbs (oz)",
+                    "content": "@D"
+                },
+                {
+                    "header": "Fat (oz)",
+                    "content": "@D"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "rowmin"    : 2,
+            "rowmax"    : 2,
+            "content"   : "Total Calories: @B"
+        },
+        {
+            "type": "paragraph",
+            "rowmin"    : 2,
+            "rowmax"    : 2,
+            "content"   : "Calories Of Servings: @D"
+        }
+    ]
+}

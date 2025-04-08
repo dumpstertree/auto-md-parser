@@ -1,0 +1,25 @@
+{
+    "Title": "",
+    "URL": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRxZ8U6Z3Bf5D0qWg78rDKh2b3jW-cLif6KSh97U8jnpErFEFsJoRT1HxtV0OI_EQUeBrLXLFv-jnuH/pub?output=xlsx",
+    "Path": "Planting/Notes",
+    "IncludeSheets" : [
+    ],
+    "ExcludeSheets" : [
+    ],
+    "sections": [
+        {
+            "type"      : "subheader",
+            "content"   : "Recorded Notes"
+        },
+        {
+            "type"      : "paragraph",
+            "rowmin"    : 3,
+            "break"     : true,
+            "bold"      : true,
+            "italic"    : true,
+            "color"     : "green",
+            "content"   : "@B : @D",
+            "content2"   : "<b>@C</b> : @D <br> <i>  Note: @L</i><br>"
+        }
+    ]
+}
