@@ -25,6 +25,7 @@ const summaryName = "SUMMARY"
 // main
 func main() {
 
+	fmt.Println("Starting Parse")
 	// variables declaration
 	var inFlag string
 	var outFlag string
@@ -64,6 +65,8 @@ func main() {
 
 	// clear any data from the web
 	cleanupTempData()
+
+	fmt.Println("Parse Complete")
 }
 
 // load
@@ -88,6 +91,8 @@ func loadLayouts(filePaths []string) []*OrderedLayout {
 		}
 
 		layouts = append(layouts, layout)
+
+		fmt.Println("Found Layout at: " + x)
 	}
 
 	return layouts
@@ -113,6 +118,8 @@ func loadSpreadheet(layouts []*OrderedLayout) map[*OrderedLayout]*excelize.File 
 		}
 
 		excel[x] = file
+
+		fmt.Println("Found Spreadsheet at: " + x.URL)
 	}
 	return excel
 }
