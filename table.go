@@ -17,7 +17,7 @@ type Table struct {
 
 type TableCollumn struct {
 	Header  string `json:"header"`
-	Collumn string `json:"collumn"`
+	Content string `json:"content"`
 }
 
 func (re Table) Write(input string, sheet string, allPages []string, file *excelize.File) string {
