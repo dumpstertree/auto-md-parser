@@ -72,7 +72,7 @@ func getData(content []TableCollumn, sheet string, allPages []string, min int, m
 		for _, x := range content {
 
 			// assign after parsing string
-			m[x.Header] = parseCompoundCollumnString(x.Collumn, sheet, i, allPages, file)
+			m[x.Header] = parseCompoundCollumnString(x.Content, sheet, i, allPages, file)
 		}
 		// add map to list
 		data = append(data, m)
