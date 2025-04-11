@@ -361,7 +361,7 @@ func parseCompoundCollumnString(input string, sheet string, row int, allPages []
 	for _, w := range strings.Split(lineEnd, " ") {
 		_, err := url.ParseRequestURI(w)
 		if err == nil {
-			lineEnd = strings.ReplaceAll(lineEnd, w, "<a href='"+w+">"+"</a>")
+			lineEnd = strings.ReplaceAll(lineEnd, w, "<a href='"+w+">"+w+"</a>")
 		}
 
 	}
