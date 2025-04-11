@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"io/fs"
+	"net/url"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -348,8 +349,7 @@ func parseCompoundCollumnString(input string, sheet string, row int, allPages []
 		last = y
 	}
 
-	words := strings.Split(lineEnd, " ")
-	for _, w := range words {
+	for _, w := range strings.Split(lineEnd, " ") {
 		for _, x := range allPages {
 			has := strings.ToLower(w) == strings.ToLower(x)
 			if has {
@@ -357,6 +357,13 @@ func parseCompoundCollumnString(input string, sheet string, row int, allPages []
 
 			}
 		}
+	}
+	for _, w := range strings.Split(lineEnd, " ") {
+		_, err := url.ParseRequestURI(w)
+		if err == nil {
+			lineEnd = strings.ReplaceAll(lineEnd, w, "<a href='"+w+">"+"</a>")
+		}
+
 	}
 
 	return lineEnd
