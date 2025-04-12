@@ -400,7 +400,7 @@ func parseCompoundCollumnString(input string, sheet string, row int, allPages []
 						fmt.Println(err)
 
 					}
-					lineEnd += "<img src=" + outputPath + name + ">"
+					lineEnd += "<img src=" + name + ">"
 					images = append(images, name)
 
 				}
