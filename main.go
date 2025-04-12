@@ -11,6 +11,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/google/uuid"
+
 	"github.com/cavaliergopher/grab/v3"
 	"github.com/xuri/excelize/v2"
 	"golang.org/x/text/collate"
@@ -22,6 +24,8 @@ var inputPath = "./layout/"
 
 const tempPath = "./.temp/"
 const summaryName = "SUMMARY"
+
+var images = []string{}
 
 // main
 func main() {
@@ -127,7 +131,56 @@ func loadSpreadheet(layouts []*OrderedLayout) map[*OrderedLayout]*excelize.File 
 
 // cleanup
 func cleanupUnlinked(allPages map[*excelize.File][]string) {
+	for _, p1 := range find(outputPath, ".png") {
+		// remove the ext
+		p1Split := strings.Split(p1, "/")
+		file := p1Split[len(p1Split)-1]
 
+		// setup a flag
+		match := false
+
+		for _, p3 := range images {
+
+			fmt.Println("check " + p3)
+			// if they are equal mark flag as match
+			isMatch := file == p3
+			if isMatch {
+				match = true
+				break
+			}
+		}
+
+		// no match was found for file so remove
+		if !match {
+			fmt.Println("removed " + p1)
+			os.Remove(p1)
+		}
+	}
+	for _, p1 := range find(outputPath, ".jpg") {
+		// remove the ext
+		p1Split := strings.Split(p1, "/")
+		file := p1Split[len(p1Split)-1]
+
+		// setup a flag
+		match := false
+
+		for _, p3 := range images {
+
+			fmt.Println("check " + p3)
+			// if they are equal mark flag as match
+			isMatch := file == p3
+			if isMatch {
+				match = true
+				break
+			}
+		}
+
+		// no match was found for file so remove
+		if !match {
+			fmt.Println("removed " + p1)
+			os.Remove(p1)
+		}
+	}
 	// remove all pages currently there
 	for _, p1 := range find(outputPath, ".md") {
 
@@ -335,6 +388,23 @@ func parseCompoundCollumnString(input string, sheet string, row int, allPages []
 		} else if y == '@' {
 
 			nxt := string(strArr[x+1])
+			z, err := file.GetPictures(sheet, nxt+strconv.Itoa(row))
+			fmt.Println(nxt + strconv.Itoa(row))
+			if err == nil {
+				for _, pic := range z {
+
+					u := uuid.New()
+					name := u.String() + pic.Extension
+					fmt.Println("added pic " + name)
+					if err := os.WriteFile(outputPath+name, pic.File, 0644); err != nil {
+						fmt.Println(err)
+
+					}
+					lineEnd += "<img src=" + outputPath + name + ">"
+					images = append(images, name)
+
+				}
+			}
 
 			val, err := file.GetCellValue(sheet, nxt+strconv.Itoa(row))
 			if err != nil {
@@ -361,7 +431,7 @@ func parseCompoundCollumnString(input string, sheet string, row int, allPages []
 	for _, w := range strings.Split(lineEnd, " ") {
 		_, err := url.ParseRequestURI(w)
 		if err == nil {
-			lineEnd = strings.ReplaceAll(lineEnd, w, "<a href='"+w+">"+w+"</a>")
+			lineEnd = strings.ReplaceAll(lineEnd, w, "<a href="+w+">"+w+"</a>")
 		}
 
 	}
