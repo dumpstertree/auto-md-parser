@@ -11,6 +11,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/fsnotify/fsnotify"
+
 	"github.com/google/uuid"
 
 	"github.com/cavaliergopher/grab/v3"
@@ -27,8 +29,12 @@ const summaryName = "SUMMARY"
 
 var images = []string{}
 
+var isDirty = false
+
 // main
-func main() {
+func Reload() {
+
+	isDirty = false
 
 	fmt.Println("Starting Parse")
 	// variables declaration
@@ -72,7 +78,63 @@ func main() {
 	cleanupTempData()
 
 	fmt.Println("Parse Complete")
+
 }
+func main() {
+
+	// for {
+
+	// for _, x := range find(inputPath, ".layout") {
+	// 	i++
+	// 	fmt.Println(strconv.Itoa(i) + " check : " + x)
+	// 	doneChan := make(chan bool)
+
+	// 	go func(doneChan chan bool) {
+	// 		defer func() {
+	// 			doneChan <- true
+	// 		}()
+
+	// 		err := watch( find(inputPath, ".layout") )
+	// 		if err != nil {
+	// 			fmt.Println(err)
+	// 		}
+
+	// 		fmt.Println(x + " : File has been changed")
+	// 	}(doneChan)
+
+	// 	<-doneChan
+	// }
+
+	for {
+
+		newPaths := find(inputPath, ".layout")
+		if !arraysEqual(paths, newPaths) {
+			paths = newPaths
+			fmt.Println("new array")
+			if w != nil {
+				w.Close()
+			}
+			w = watch(find(inputPath, ".layout"))
+		}
+	}
+
+}
+
+func arraysEqual(arr1, arr2 []string) bool {
+	if len(arr1) != len(arr2) {
+		return false
+	}
+	for i := range arr1 {
+		if arr1[i] != arr2[i] {
+			return false
+		}
+	}
+	return true
+}
+
+var paths []string
+
+var w *fsnotify.Watcher
 
 // load
 func loadLayouts(filePaths []string) []*OrderedLayout {
@@ -489,4 +551,64 @@ func (s TextSubsection) ModifyTextEnds(text string) string {
 
 	}
 	return text
+}
+
+// This is the most basic example: it prints events to the terminal as we
+// receive them.
+func watch(paths []string) *fsnotify.Watcher {
+	if len(paths) < 1 {
+		fmt.Println("must specify at least one path to watch")
+	}
+
+	// Create a new watcher.
+	w, err := fsnotify.NewWatcher()
+	if err != nil {
+		fmt.Println("creating a new watcher: %s", err)
+	}
+	defer w.Close()
+
+	// Start listening for events.
+	go watchLoop(w)
+
+	// Add all paths from the commandline.
+	for _, p := range paths {
+		err = w.Add(p)
+		if err != nil {
+			fmt.Println("%q: %s", p, err)
+		}
+	}
+
+	fmt.Println("ready; press ^C to exit")
+	<-make(chan struct{}) // Block forever
+
+	return w
+}
+
+func watchLoop(w *fsnotify.Watcher) {
+	i := 0
+	for {
+		select {
+		// Read from Errors.
+		case err, ok := <-w.Errors:
+			if !ok { // Channel was closed (i.e. Watcher.Close() was called).
+				return
+			}
+			fmt.Println("ERROR: %s", err)
+		// Read from Events.
+		case e, ok := <-w.Events:
+			if !ok { // Channel was closed (i.e. Watcher.Close() was called).
+				return
+			}
+
+			// Just print the event nicely aligned, and keep track how many
+			// events we've seen.
+			i++
+			fmt.Println("%3d %s", i, e)
+			isDirty = true
+			fmt.Println("set dirty")
+
+			//
+			Reload()
+		}
+	}
 }
