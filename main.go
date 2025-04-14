@@ -10,6 +10,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/fsnotify/fsnotify"
 
@@ -36,27 +37,6 @@ func Reload() {
 
 	isDirty = false
 
-	fmt.Println("Starting Parse")
-	// variables declaration
-	var inFlag string
-	var outFlag string
-
-	// flags declaration using flag package
-	flag.StringVar(&inFlag, "i", "", "")
-	flag.StringVar(&outFlag, "o", "", "")
-	flag.Parse()
-	if inFlag == "" {
-		fmt.Println("No Input Path Provided")
-		return
-	}
-	if outFlag == "" {
-		fmt.Println("No Output Path Provided")
-		return
-	}
-
-	outputPath = outFlag
-	inputPath = inFlag
-
 	// generate
 	paths := find(inputPath, ".layout")
 	layouts := loadLayouts(paths)
@@ -81,6 +61,27 @@ func Reload() {
 
 }
 func main() {
+
+	fmt.Println("Starting Parse")
+	// variables declaration
+	var inFlag string
+	var outFlag string
+
+	// flags declaration using flag package
+	flag.StringVar(&inFlag, "i", "", "")
+	flag.StringVar(&outFlag, "o", "", "")
+	flag.Parse()
+	if inFlag == "" {
+		fmt.Println("No Input Path Provided")
+		return
+	}
+	if outFlag == "" {
+		fmt.Println("No Output Path Provided")
+		return
+	}
+
+	outputPath = outFlag
+	inputPath = inFlag
 
 	// for {
 
@@ -108,14 +109,21 @@ func main() {
 	for {
 
 		newPaths := find(inputPath, ".layout")
-		if !arraysEqual(paths, newPaths) {
+		if !arraysEqual(paths, newPaths) || w == nil {
 			paths = newPaths
 			fmt.Println("new array")
 			if w != nil {
 				w.Close()
 			}
 			w = watch(find(inputPath, ".layout"))
+			Reload()
 		}
+
+		if w != nil {
+			watchLoop(w)
+		}
+
+		time.Sleep(1 * time.Second)
 	}
 
 }
@@ -565,10 +573,10 @@ func watch(paths []string) *fsnotify.Watcher {
 	if err != nil {
 		fmt.Println("creating a new watcher: %s", err)
 	}
-	defer w.Close()
+	//defer w.Close()
 
 	// Start listening for events.
-	go watchLoop(w)
+	//go watchLoop(w)
 
 	// Add all paths from the commandline.
 	for _, p := range paths {
@@ -578,37 +586,38 @@ func watch(paths []string) *fsnotify.Watcher {
 		}
 	}
 
-	fmt.Println("ready; press ^C to exit")
-	<-make(chan struct{}) // Block forever
+	//fmt.Println("ready; press ^C to exit")
+	//<-make(chan struct{}) // Block forever
 
 	return w
 }
 
 func watchLoop(w *fsnotify.Watcher) {
+	fmt.Println("watch loop ")
 	i := 0
-	for {
-		select {
-		// Read from Errors.
-		case err, ok := <-w.Errors:
-			if !ok { // Channel was closed (i.e. Watcher.Close() was called).
-				return
-			}
-			fmt.Println("ERROR: %s", err)
-		// Read from Events.
-		case e, ok := <-w.Events:
-			if !ok { // Channel was closed (i.e. Watcher.Close() was called).
-				return
-			}
-
-			// Just print the event nicely aligned, and keep track how many
-			// events we've seen.
-			i++
-			fmt.Println("%3d %s", i, e)
-			isDirty = true
-			fmt.Println("set dirty")
-
-			//
-			Reload()
+	//for {
+	select {
+	// Read from Errors.
+	case err, ok := <-w.Errors:
+		if !ok { // Channel was closed (i.e. Watcher.Close() was called).
+			return
 		}
+		fmt.Println("ERROR: %s", err)
+	// Read from Events.
+	case e, ok := <-w.Events:
+		if !ok { // Channel was closed (i.e. Watcher.Close() was called).
+			return
+		}
+
+		// Just print the event nicely aligned, and keep track how many
+		// events we've seen.
+		i++
+		fmt.Println("%3d %s", i, e)
+		isDirty = true
+		fmt.Println("set dirty")
+
+		//
+		Reload()
 	}
+	//}
 }
