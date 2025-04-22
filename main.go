@@ -183,13 +183,15 @@ func loadSpreadheet(layouts []*OrderedLayout) map[*OrderedLayout]*excelize.File 
 		// guard - grab file
 		resp, err := grab.Get(tempPath, x.URL)
 		if err != nil {
-			panic(err)
+			fmt.Println("Failed to get response for : " + x.Title)
+			continue
 		}
 
 		// guard - couldnt open file
 		file, err := excelize.OpenFile(resp.Filename)
 		if err != nil {
-			panic(err)
+			fmt.Println("Failed to open file for : " + x.Title)
+			continue
 		}
 
 		excel[x] = file
