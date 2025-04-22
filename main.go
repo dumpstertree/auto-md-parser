@@ -213,7 +213,6 @@ func cleanupUnlinked(allPages map[*excelize.File][]string) {
 
 		for _, p3 := range images {
 
-			fmt.Println("check " + p3)
 			// if they are equal mark flag as match
 			isMatch := file == p3
 			if isMatch {
@@ -224,7 +223,6 @@ func cleanupUnlinked(allPages map[*excelize.File][]string) {
 
 		// no match was found for file so remove
 		if !match {
-			fmt.Println("removed " + p1)
 			os.Remove(p1)
 		}
 	}
@@ -238,7 +236,6 @@ func cleanupUnlinked(allPages map[*excelize.File][]string) {
 
 		for _, p3 := range images {
 
-			fmt.Println("check " + p3)
 			// if they are equal mark flag as match
 			isMatch := file == p3
 			if isMatch {
@@ -249,7 +246,6 @@ func cleanupUnlinked(allPages map[*excelize.File][]string) {
 
 		// no match was found for file so remove
 		if !match {
-			fmt.Println("removed " + p1)
 			os.Remove(p1)
 		}
 	}
@@ -355,6 +351,14 @@ func buildPageContent(layoutToFile map[*OrderedLayout]*excelize.File, allPages m
 				content = subsection.Write(content, sheet, allPagesFlat, file)
 			}
 
+			// create source link
+			content += "<div style='page-break-after: always;'></div>\n"
+			content += "---\n"
+			content += "<div style='page-break-after: always;'></div>\n"
+			content += "<div style='text-align: right'>\n"
+			content += "<a href='" + layout.URL + "'>SOURCE</a>\n"
+			content += "</div>\n"
+
 			// guard- output to .md
 			err := os.WriteFile(outputPath+sheet+".md", []byte(content), 0644)
 			if err != nil {
@@ -363,7 +367,9 @@ func buildPageContent(layoutToFile map[*OrderedLayout]*excelize.File, allPages m
 
 			summary[layout.Path] = append(summary[layout.Path], sheet)
 		}
+
 	}
+
 	// return value
 	return summary
 }
@@ -461,13 +467,11 @@ func parseCompoundCollumnString(input string, sheet string, row int, allPages []
 
 			nxt := string(strArr[x+1])
 			z, err := file.GetPictures(sheet, nxt+strconv.Itoa(row))
-			fmt.Println(nxt + strconv.Itoa(row))
 			if err == nil {
 				for _, pic := range z {
 
 					u := uuid.New()
 					name := u.String() + pic.Extension
-					fmt.Println("added pic " + name)
 					if err := os.WriteFile(outputPath+name, pic.File, 0644); err != nil {
 						fmt.Println(err)
 
