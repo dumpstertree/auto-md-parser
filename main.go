@@ -156,13 +156,15 @@ func loadLayouts(filePaths []string) []*OrderedLayout {
 		// guard - read text
 		content, err := os.ReadFile(x)
 		if err != nil {
-			panic(err)
+			fmt.Println("Faled to read file at : " + x)
+			continue
 		}
 
 		// guard - convert to layout object
 		err = json.Unmarshal(content, &layout)
 		if err != nil {
-			panic(err)
+			fmt.Println("Faled to parse JSON at : " + x)
+			continue
 		}
 
 		layouts = append(layouts, layout)
@@ -497,7 +499,11 @@ func parseCompoundCollumnString(input string, sheet string, row int, allPages []
 
 	for _, w := range strings.Split(lineEnd, " ") {
 		for _, x := range allPages {
-			has := strings.ToLower(w) == strings.ToLower(x)
+			has := strings.EqualFold(w, x)
+			if has {
+				fmt.Println("match")
+			}
+			//fmt.Println("check page " + w + " : " + x)
 			if has {
 				lineEnd = strings.ReplaceAll(lineEnd, w, "<a href='"+x+".html'>"+strings.ReplaceAll(w, " ", "")+"</a>")
 
@@ -506,9 +512,16 @@ func parseCompoundCollumnString(input string, sheet string, row int, allPages []
 	}
 	for _, w := range strings.Split(lineEnd, " ") {
 		_, err := url.ParseRequestURI(w)
-		if err == nil {
-			lineEnd = strings.ReplaceAll(lineEnd, w, "<a href="+w+">"+w+"</a>")
+		if err != nil {
+			continue
 		}
+
+		u, err := url.Parse(w)
+		if err != nil || u.Scheme == "" || u.Host == "" {
+			continue
+		}
+
+		lineEnd = strings.ReplaceAll(lineEnd, w, "<a href="+w+">"+w+"</a>")
 
 	}
 
