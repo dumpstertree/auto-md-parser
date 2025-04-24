@@ -402,7 +402,7 @@ func buildPageContent(layoutToFile map[*OrderedLayout]*excelize.File, allPages m
 			content += "<div style='page-break-after: always;'></div>\n"
 
 			for _, tag := range layout.Tags {
-				content += "<a href='" + tag + ".html'>" + tag + "</a>, "
+				content += "<a href='" + "_" + tag + ".html'>" + "_" + tag + "</a>, "
 			}
 			content += "\n"
 
