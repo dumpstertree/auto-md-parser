@@ -295,6 +295,7 @@ func buildPageTags(fileToPath map[*excelize.File][]string, layoutToFile map[*Ord
 		content := ""
 		for _, path := range y {
 			content += "<a href='" + path + ".html'>" + path + "</a>"
+			content += "\\"
 			content += "\n"
 		}
 		// create a file
@@ -311,7 +312,9 @@ func buildPageTags(fileToPath map[*excelize.File][]string, layoutToFile map[*Ord
 
 		//for _, path := range x {
 		content += "<a href='" + y + ".html'>" + y + "</a>"
+		content += "\\"
 		content += "\n"
+
 		//}
 
 	}
