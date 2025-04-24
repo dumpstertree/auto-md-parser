@@ -246,7 +246,11 @@ func cleanupUnlinked(allPages map[*excelize.File][]string) {
 		if file == "Tags" {
 			continue
 		}
-		if strings.ContainsRune(file, '#') {
+		if strings.ContainsRune(file, '_') {
+			continue
+		}
+
+		if strings.Contains(file, "tag") {
 			continue
 		}
 
@@ -290,7 +294,7 @@ func buildPageTags(fileToPath map[*excelize.File][]string, layoutToFile map[*Ord
 	for x, y := range allTags {
 		content := ""
 		for _, path := range y {
-			content += "<a href='" + path + ".html'</a>"
+			content += "<a href='" + path + ".html'>" + path + "</a>"
 			content += "\n"
 		}
 		// create a file
@@ -302,16 +306,18 @@ func buildPageTags(fileToPath map[*excelize.File][]string, layoutToFile map[*Ord
 		}
 	}
 
-	for _, x := range allTags {
-		content := ""
-		for _, path := range x {
-			content += "<a href='" + path + ".html'</a>"
-			content += "\n"
-		}
-		err := os.WriteFile(outputPath+"Tags"+".md", []byte(content), 0644)
-		if err != nil {
-			panic(err)
-		}
+	content := ""
+	for y, _ := range allTags {
+
+		//for _, path := range x {
+		content += "<a href='" + y + ".html'>" + y + "</a>"
+		content += "\n"
+		//}
+
+	}
+	err := os.WriteFile(outputPath+"Tags"+".md", []byte(content), 0644)
+	if err != nil {
+		panic(err)
 	}
 
 	//c := collate.New(language.English, collate.IgnoreCase)
