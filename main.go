@@ -397,10 +397,17 @@ func buildPageContent(layoutToFile map[*OrderedLayout]*excelize.File, allPages m
 				content = subsection.Write(content, sheet, allPagesFlat, file)
 			}
 
-			// create source link
 			content += "<div style='page-break-after: always;'></div>\n"
 			content += "---\n"
 			content += "<div style='page-break-after: always;'></div>\n"
+
+			for _, tag := range layout.Tags {
+				content += "<a href='" + tag + ".html'>" + tag + "</a>, "
+			}
+			content += "\n"
+
+			// create source link
+
 			content += "<div style='text-align: right'>\n"
 			content += "<a href='" + layout.URL + "'>SOURCE</a>\n"
 			content += "</div>\n"

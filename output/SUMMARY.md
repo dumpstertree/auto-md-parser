@@ -18,8 +18,8 @@
 	- [general-tasks](general-tasks.md)
 # Tags
 - [Tags](Tags.md)
-	- [_Food](_Food.md)
-	- [_Budgeting](_Budgeting.md)
 	- [_Plants](_Plants.md)
 	- [_Gardening](_Gardening.md)
 	- [_Off-Grid](_Off-Grid.md)
+	- [_Food](_Food.md)
+	- [_Budgeting](_Budgeting.md)
