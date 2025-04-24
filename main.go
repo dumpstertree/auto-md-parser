@@ -282,7 +282,7 @@ func buildPageTags(fileToPath map[*excelize.File][]string, layoutToFile map[*Ord
 		for _, x := range z.Tags {
 
 			for _, path := range fileToPath[y] {
-				allTags["#"+x] = append(allTags["#"+x], path)
+				allTags["_"+x] = append(allTags["_"+x], path)
 			}
 		}
 	}
@@ -460,9 +460,9 @@ func buildSummaryPage(summary map[string][]string, summaryTags []string) {
 	}
 
 	out += "# Tags\n"
-	out += "- [Tags]()\n"
+	out += "- [Tags](Tags.md)\n"
 	for _, x := range summaryTags {
-		out += "     - [" + x + "](" + strings.ReplaceAll(x, " ", "") + ".md)"
+		out += "	- [" + x + "](" + strings.ReplaceAll(x, " ", "") + ".md)"
 		out += "\n"
 	}
 
