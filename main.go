@@ -45,11 +45,14 @@ func Reload() {
 	// get the page list
 	allPages := buildPageLists(spreadsheets)
 
-	// build the pages and get a summary
-	summary := buildPageContent(spreadsheets, allPages)
+	// build the pages and get a summaryPages
+	summaryPages := buildPageContent(spreadsheets, allPages)
+
+	// tags
+	summaryTags := buildPageTags(allPages, spreadsheets)
 
 	// build the summary page
-	buildSummaryPage(summary)
+	buildSummaryPage(summaryPages, summaryTags)
 
 	// cleanup
 	cleanupUnlinked(allPages)
@@ -82,29 +85,6 @@ func main() {
 
 	outputPath = outFlag
 	inputPath = inFlag
-
-	// for {
-
-	// for _, x := range find(inputPath, ".layout") {
-	// 	i++
-	// 	fmt.Println(strconv.Itoa(i) + " check : " + x)
-	// 	doneChan := make(chan bool)
-
-	// 	go func(doneChan chan bool) {
-	// 		defer func() {
-	// 			doneChan <- true
-	// 		}()
-
-	// 		err := watch( find(inputPath, ".layout") )
-	// 		if err != nil {
-	// 			fmt.Println(err)
-	// 		}
-
-	// 		fmt.Println(x + " : File has been changed")
-	// 	}(doneChan)
-
-	// 	<-doneChan
-	// }
 
 	for {
 
@@ -263,6 +243,12 @@ func cleanupUnlinked(allPages map[*excelize.File][]string) {
 		if file == summaryName {
 			continue
 		}
+		if file == "Tags" {
+			continue
+		}
+		if strings.ContainsRune(file, '#') {
+			continue
+		}
 
 		// setup a flag
 		match := false
@@ -289,6 +275,55 @@ func cleanupTempData() {
 }
 
 // build
+func buildPageTags(fileToPath map[*excelize.File][]string, layoutToFile map[*OrderedLayout]*excelize.File) []string {
+	allTags := make(map[string][]string)
+
+	for z, y := range layoutToFile {
+		for _, x := range z.Tags {
+
+			for _, path := range fileToPath[y] {
+				allTags["#"+x] = append(allTags["#"+x], path)
+			}
+		}
+	}
+
+	for x, y := range allTags {
+		content := ""
+		for _, path := range y {
+			content += "<a href='" + path + ".html'</a>"
+			content += "\n"
+		}
+		// create a file
+		err := os.WriteFile(outputPath+x+".md", []byte(content), 0644)
+		fmt.Println("add: " + outputPath + x + ".md")
+
+		if err != nil {
+			panic(err)
+		}
+	}
+
+	for _, x := range allTags {
+		content := ""
+		for _, path := range x {
+			content += "<a href='" + path + ".html'</a>"
+			content += "\n"
+		}
+		err := os.WriteFile(outputPath+"Tags"+".md", []byte(content), 0644)
+		if err != nil {
+			panic(err)
+		}
+	}
+
+	//c := collate.New(language.English, collate.IgnoreCase)
+	//c.SortStrings(allTags)
+
+	keys := make([]string, 0, len(allTags))
+	for k := range allTags {
+		keys = append(keys, k)
+	}
+
+	return keys
+}
 func buildPageLists(layoutToFile map[*OrderedLayout]*excelize.File) map[*excelize.File][]string {
 
 	// create return value
@@ -375,7 +410,7 @@ func buildPageContent(layoutToFile map[*OrderedLayout]*excelize.File, allPages m
 	// return value
 	return summary
 }
-func buildSummaryPage(summary map[string][]string) {
+func buildSummaryPage(summary map[string][]string, summaryTags []string) {
 
 	// get all paths
 	keys := make([]string, 0, len(summary))
@@ -422,6 +457,13 @@ func buildSummaryPage(summary map[string][]string) {
 			out += "- [" + g + "](" + strings.ReplaceAll(g, " ", "") + ".md)"
 			out += "\n"
 		}
+	}
+
+	out += "# Tags\n"
+	out += "- [Tags]()\n"
+	for _, x := range summaryTags {
+		out += "     - [" + x + "](" + strings.ReplaceAll(x, " ", "") + ".md)"
+		out += "\n"
 	}
 
 	err := os.WriteFile(outputPath+"SUMMARY.md", []byte(out), 0644)
@@ -538,6 +580,7 @@ type OrderedLayout struct {
 	Path             string
 	IncludeSheets    []string
 	ExcludeSheets    []string
+	Tags             []string
 	LayoutSubsection []ISubsection     `json:"-"`
 	Sections         []json.RawMessage `json:"sections"`
 }
@@ -585,12 +628,14 @@ func (s TextSubsection) ModifyTextEnds(text string) string {
 func watch(paths []string) *fsnotify.Watcher {
 	if len(paths) < 1 {
 		fmt.Println("must specify at least one path to watch")
+		return nil
 	}
 
 	// Create a new watcher.
 	w, err := fsnotify.NewWatcher()
 	if err != nil {
 		fmt.Println("creating a new watcher: %s", err)
+		return nil
 	}
 	//defer w.Close()
 
