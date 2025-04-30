@@ -1,25 +1,31 @@
 #
 # Cooking
-- [Ingredients](Ingredients.md)
+- [Ingredients](Ingredients.html)
 - [Recipes]()
 	- [Bulk]()
-		- [Sauce](Sauce.md)
-		- [Meatballs](Meatballs.md)
-		- [Taquitos](Taquitos.md)
-		- [Burgers](Burgers.md)
-		- [BuffaloTubes](BuffaloTubes.md)
+		- [BuffaloTubes](BuffaloTubes.html)
+		- [Burgers](Burgers.html)
+		- [Meatballs](Meatballs.html)
+		- [Sauce](Sauce.html)
+		- [Taquitos](Taquitos.html)
 # Planting
 - [Notes]()
-	- [nursery-tasks](nursery-tasks.md)
-	- [transplant-tasks](transplant-tasks.md)
-	- [direct-seeding-tasks](direct-seeding-tasks.md)
-	- [pflanzarbeiten](pflanzarbeiten.md)
-	- [harvest-tasks](harvest-tasks.md)
-	- [general-tasks](general-tasks.md)
+	- [direct-seeding-tasks](direct-seeding-tasks.html)
+	- [general-tasks](general-tasks.html)
+	- [harvest-tasks](harvest-tasks.html)
+	- [nursery-tasks](nursery-tasks.html)
+	- [pflanzarbeiten](pflanzarbeiten.html)
+	- [transplant-tasks](transplant-tasks.html)
+# tag-Budgeting
+# tag-Food
+# tag-Gardening
+# tag-Off-Grid
+# tag-Plants
 # Tags
-- [Tags](Tags.md)
-	- [_Plants](_Plants.md)
-	- [_Gardening](_Gardening.md)
-	- [_Off-Grid](_Off-Grid.md)
-	- [_Food](_Food.md)
-	- [_Budgeting](_Budgeting.md)
+<div style='page-break-after: always;'></div>
+---
+<div style='page-break-after: always;'></div>
+
+<div style='text-align: right'>
+<a href=''>SOURCE</a>
+</div>

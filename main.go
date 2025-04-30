@@ -16,53 +16,24 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/cavaliergopher/grab/v3"
 	"github.com/xuri/excelize/v2"
-	"golang.org/x/text/collate"
-	"golang.org/x/text/language"
 )
+
+const summaryName = "SUMMARY"
 
 var outputPath = "/media/dumpstertree/67FF-9C76/Development/Docker/mdBook/content/src/"
 var inputPath = "./layout/"
 
-const tempPath = "./.temp/"
-const summaryName = "SUMMARY"
-
 var images = []string{}
-
 var isDirty = false
+var paths []string
+var w *fsnotify.Watcher
+
+var generateTags = true
+var generateContent = true
+var generateSummary = true
 
 // main
-func Reload() {
-
-	isDirty = false
-
-	// generate
-	paths := find(inputPath, ".layout")
-	layouts := loadLayouts(paths)
-	spreadsheets := loadSpreadheet(layouts)
-
-	// get the page list
-	allPages := buildPageLists(spreadsheets)
-
-	// build the pages and get a summaryPages
-	summaryPages := buildPageContent(spreadsheets, allPages)
-
-	// tags
-	summaryTags := buildPageTags(allPages, spreadsheets)
-
-	// build the summary page
-	buildSummaryPage(summaryPages, summaryTags)
-
-	// cleanup
-	cleanupUnlinked(allPages)
-
-	// clear any data from the web
-	cleanupTempData()
-
-	fmt.Println("Parse Complete")
-
-}
 func main() {
 
 	fmt.Println("Starting Parse")
@@ -86,26 +57,63 @@ func main() {
 	outputPath = outFlag
 	inputPath = inFlag
 
+	// create a watcher that watches for file changes
+	watcher := new(DirectoryWatcher)
+
+	// loop waiting for changes
 	for {
 
-		newPaths := find(inputPath, ".layout")
-		if !arraysEqual(paths, newPaths) || w == nil {
-			paths = newPaths
-			fmt.Println("new array")
-			if w != nil {
-				w.Close()
-			}
-			w = watch(find(inputPath, ".layout"))
+		if watcher.IsDirty() {
 			Reload()
-		}
-
-		if w != nil {
-			watchLoop(w)
 		}
 
 		time.Sleep(1 * time.Second)
 	}
+}
 
+func Reload() {
+
+	// data loader
+	d := new(DataLoader)
+	d.Load(inputPath)
+
+	//
+	p := new(PageParser)
+	p.Load(d)
+
+	// get all pages
+	allPages := []Page{}
+
+	if generateContent {
+		// load page content
+		allPages = append(allPages, makePageContent(d, p).Pages...)
+	}
+
+	// load page tags
+	if generateTags {
+		allPages = append(allPages, makePageTags(allPages).Pages...)
+	}
+
+	// apply links to other pages
+	for _, p := range allPages {
+		p.ApplyLinks(allPages)
+	}
+
+	// load page summary
+	if generateSummary {
+		allPages = append(allPages, makePageSummary(allPages).Pages...)
+	}
+
+	// write all pages
+	for _, i := range allPages {
+		WriteToDisk(outputPath, i)
+	}
+
+	// cleanup
+	cleanupUnlinked(p.ParsedPages)
+
+	// unload
+	d.Clear()
 }
 
 func arraysEqual(arr1, arr2 []string) bool {
@@ -118,69 +126,6 @@ func arraysEqual(arr1, arr2 []string) bool {
 		}
 	}
 	return true
-}
-
-var paths []string
-
-var w *fsnotify.Watcher
-
-// load
-func loadLayouts(filePaths []string) []*OrderedLayout {
-
-	layouts := []*OrderedLayout{}
-	for _, x := range filePaths {
-
-		// create layout object
-		var layout *OrderedLayout
-
-		// guard - read text
-		content, err := os.ReadFile(x)
-		if err != nil {
-			fmt.Println("Faled to read file at : " + x)
-			continue
-		}
-
-		// guard - convert to layout object
-		err = json.Unmarshal(content, &layout)
-		if err != nil {
-			fmt.Println("Faled to parse JSON at : " + x)
-			continue
-		}
-
-		layouts = append(layouts, layout)
-
-		fmt.Println("Found Layout at: " + x)
-	}
-
-	return layouts
-}
-func loadSpreadheet(layouts []*OrderedLayout) map[*OrderedLayout]*excelize.File {
-
-	// make temp dir if doesnt exist
-	os.Mkdir(tempPath, 0777)
-
-	excel := make(map[*OrderedLayout]*excelize.File)
-	for _, x := range layouts {
-
-		// guard - grab file
-		resp, err := grab.Get(tempPath, x.URL)
-		if err != nil {
-			fmt.Println("Failed to get response for : " + x.Title)
-			continue
-		}
-
-		// guard - couldnt open file
-		file, err := excelize.OpenFile(resp.Filename)
-		if err != nil {
-			fmt.Println("Failed to open file for : " + x.Title)
-			continue
-		}
-
-		excel[x] = file
-
-		fmt.Println("Found Spreadsheet at: " + x.URL)
-	}
-	return excel
 }
 
 // cleanup
@@ -272,219 +217,6 @@ func cleanupUnlinked(allPages map[*excelize.File][]string) {
 		if !match {
 			os.Remove(p1)
 		}
-	}
-}
-func cleanupTempData() {
-	os.RemoveAll(tempPath)
-}
-
-// build
-func buildPageTags(fileToPath map[*excelize.File][]string, layoutToFile map[*OrderedLayout]*excelize.File) []string {
-	allTags := make(map[string][]string)
-
-	for z, y := range layoutToFile {
-		for _, x := range z.Tags {
-
-			for _, path := range fileToPath[y] {
-				allTags["_"+x] = append(allTags["_"+x], path)
-			}
-		}
-	}
-
-	for x, y := range allTags {
-		content := ""
-		for _, path := range y {
-			content += "<a href='" + path + ".html'>" + path + "</a>"
-			content += "\\"
-			content += "\n"
-		}
-		// create a file
-		err := os.WriteFile(outputPath+x+".md", []byte(content), 0644)
-		fmt.Println("add: " + outputPath + x + ".md")
-
-		if err != nil {
-			panic(err)
-		}
-	}
-
-	content := ""
-	for y, _ := range allTags {
-
-		//for _, path := range x {
-		content += "<a href='" + y + ".html'>" + y + "</a>"
-		content += "\\"
-		content += "\n"
-
-		//}
-
-	}
-	err := os.WriteFile(outputPath+"Tags"+".md", []byte(content), 0644)
-	if err != nil {
-		panic(err)
-	}
-
-	//c := collate.New(language.English, collate.IgnoreCase)
-	//c.SortStrings(allTags)
-
-	keys := make([]string, 0, len(allTags))
-	for k := range allTags {
-		keys = append(keys, k)
-	}
-
-	return keys
-}
-func buildPageLists(layoutToFile map[*OrderedLayout]*excelize.File) map[*excelize.File][]string {
-
-	// create return value
-	allPages := make(map[*excelize.File][]string)
-	// add pages for each path
-	for layout, file := range layoutToFile {
-
-		// get sheets on excel file
-		allSheets := file.GetSheetList()
-
-		// create array to hold pages for this file
-		pages := []string{}
-
-		// add all include pages
-		if len(layout.IncludeSheets) == 0 {
-			pages = append(pages, allSheets...)
-		} else {
-			pages = append(pages, layout.IncludeSheets...)
-		}
-
-		// remove all excluded pages
-		if len(layout.ExcludeSheets) != 0 {
-			for _, y := range layout.ExcludeSheets {
-				pages = remove(pages, y)
-			}
-		}
-		// add pages for file to map
-		allPages[file] = pages
-	}
-	// return value
-	return allPages
-}
-func buildPageContent(layoutToFile map[*OrderedLayout]*excelize.File, allPages map[*excelize.File][]string) map[string][]string {
-
-	// flatten the pages for use when writing
-	allPagesFlat := []string{}
-	for _, y := range allPages {
-		allPagesFlat = append(allPagesFlat, y...)
-	}
-
-	// initialize return value
-	summary := make(map[string][]string)
-
-	// add pages for each path
-	for layout, file := range layoutToFile {
-
-		// get sheets for this file
-		reqSheets := allPages[file]
-
-		//iterate on the required pages
-		for _, sheet := range reqSheets {
-
-			// page content
-			var content = ""
-
-			// add mandatory header
-			content += "## " + sheet
-			content += "\n"
-
-			// add all subsections
-			for _, subsection := range layout.LayoutSubsection {
-				content = subsection.Write(content, sheet, allPagesFlat, file)
-			}
-
-			content += "<div style='page-break-after: always;'></div>\n"
-			content += "---\n"
-			content += "<div style='page-break-after: always;'></div>\n"
-
-			for _, tag := range layout.Tags {
-				content += "<a href='" + "_" + tag + ".html'>" + "_" + tag + "</a>, "
-			}
-			content += "\n"
-
-			// create source link
-
-			content += "<div style='text-align: right'>\n"
-			content += "<a href='" + layout.URL + "'>SOURCE</a>\n"
-			content += "</div>\n"
-
-			// guard- output to .md
-			err := os.WriteFile(outputPath+sheet+".md", []byte(content), 0644)
-			if err != nil {
-				panic(err)
-			}
-
-			summary[layout.Path] = append(summary[layout.Path], sheet)
-		}
-
-	}
-
-	// return value
-	return summary
-}
-func buildSummaryPage(summary map[string][]string, summaryTags []string) {
-
-	// get all paths
-	keys := make([]string, 0, len(summary))
-	for k := range summary {
-		keys = append(keys, k)
-	}
-	// sort
-	c := collate.New(language.English, collate.IgnoreCase)
-	c.SortStrings(keys)
-
-	out := "#\n"
-	for m, y := range keys {
-		split := strings.Split(y, "/")
-		for z, x := range split {
-
-			if m > 0 {
-				splitlast := strings.Split(keys[m-1], "/")
-
-				if len(splitlast) > z && splitlast[z] == x {
-					continue
-				}
-			}
-
-			if z == 0 {
-				// if this is the first level make it a header
-				out += "# " + x
-				out += "\n"
-
-			} else {
-				// if this is more than first level add a draft
-				for f := 1; f < z; f++ {
-					out += "	"
-				}
-
-				out += "- [" + x + "]()"
-				out += "\n"
-			}
-		}
-		for _, g := range summary[y] {
-			for f := 1; f < len(split); f++ {
-				out += "	"
-			}
-
-			out += "- [" + g + "](" + strings.ReplaceAll(g, " ", "") + ".md)"
-			out += "\n"
-		}
-	}
-
-	out += "# Tags\n"
-	out += "- [Tags](Tags.md)\n"
-	for _, x := range summaryTags {
-		out += "	- [" + x + "](" + strings.ReplaceAll(x, " ", "") + ".md)"
-		out += "\n"
-	}
-
-	err := os.WriteFile(outputPath+"SUMMARY.md", []byte(out), 0644)
-	if err != nil {
-		panic(err)
 	}
 }
 
@@ -586,6 +318,63 @@ func parseCompoundCollumnString(input string, sheet string, row int, allPages []
 	return lineEnd
 }
 
+type Page struct {
+	Name    string
+	Path    string
+	Content string
+	Source  string
+	Tags    []PageTag
+}
+
+type PageTag struct {
+	LinkName    string
+	DisplayName string
+}
+
+func (p Page) ApplyLinks(pages []Page) {
+
+	content := ""
+	split := strings.Split(p.Content, " ")
+	for _, w := range split {
+		for _, c := range pages {
+
+			isSame := c.Name == w
+			if !isSame {
+				continue
+			}
+
+			w = "<a href='" + c.Name + ".html'>" + w + "</a>"
+			break
+		}
+
+		content += w
+		content += " "
+	}
+}
+
+func makePage(path string, name string, content string, source string, tags []string) *Page {
+
+	t := []PageTag{}
+	for _, i := range tags {
+		t = append(t, *makeTag(i))
+	}
+
+	return &Page{
+		Name:    name,
+		Path:    path,
+		Content: content,
+		Source:  source,
+		Tags:    t,
+	}
+}
+func makeTag(name string) *PageTag {
+
+	return &PageTag{
+		LinkName:    "tag-" + name,
+		DisplayName: "#" + name,
+	}
+}
+
 // data
 type ISubsection interface {
 	Write(input string, sheet string, allPages []string, file *excelize.File) string
@@ -637,67 +426,4 @@ func (s TextSubsection) ModifyTextEnds(text string) string {
 
 	}
 	return text
-}
-
-// This is the most basic example: it prints events to the terminal as we
-// receive them.
-func watch(paths []string) *fsnotify.Watcher {
-	if len(paths) < 1 {
-		fmt.Println("must specify at least one path to watch")
-		return nil
-	}
-
-	// Create a new watcher.
-	w, err := fsnotify.NewWatcher()
-	if err != nil {
-		fmt.Println("creating a new watcher: %s", err)
-		return nil
-	}
-	//defer w.Close()
-
-	// Start listening for events.
-	//go watchLoop(w)
-
-	// Add all paths from the commandline.
-	for _, p := range paths {
-		err = w.Add(p)
-		if err != nil {
-			fmt.Println("%q: %s", p, err)
-		}
-	}
-
-	//fmt.Println("ready; press ^C to exit")
-	//<-make(chan struct{}) // Block forever
-
-	return w
-}
-
-func watchLoop(w *fsnotify.Watcher) {
-	fmt.Println("watch loop ")
-	i := 0
-	//for {
-	select {
-	// Read from Errors.
-	case err, ok := <-w.Errors:
-		if !ok { // Channel was closed (i.e. Watcher.Close() was called).
-			return
-		}
-		fmt.Println("ERROR: %s", err)
-	// Read from Events.
-	case e, ok := <-w.Events:
-		if !ok { // Channel was closed (i.e. Watcher.Close() was called).
-			return
-		}
-
-		// Just print the event nicely aligned, and keep track how many
-		// events we've seen.
-		i++
-		fmt.Println("%3d %s", i, e)
-		isDirty = true
-		fmt.Println("set dirty")
-
-		//
-		Reload()
-	}
-	//}
 }
