@@ -89,24 +89,28 @@ func Reload() {
 		allPages = append(allPages, makePageContent(d, p).Pages...)
 	}
 
-	// load page tags
-	if generateTags {
-		allPages = append(allPages, makePageTags(allPages).Pages...)
-	}
-
 	// apply links to other pages
 	for _, p := range allPages {
 		p.ApplyLinks(allPages)
 	}
 
-	// load page summary
-	if generateSummary {
-		allPages = append(allPages, makePageSummary(allPages).Pages...)
+	// load page tags
+	if generateTags {
+		allPages = append(allPages, makePageTags(allPages).Pages...)
 	}
 
 	// write all pages
 	for _, i := range allPages {
-		WriteToDisk(outputPath, i)
+		WriteToDisk(outputPath, i, true)
+	}
+
+	// load page summary
+	if generateSummary {
+		summaryPages := makePageSummary(allPages).Pages
+		for _, i := range summaryPages {
+			WriteToDisk(outputPath, i, false)
+		}
+
 	}
 
 	// cleanup
@@ -358,6 +362,8 @@ func makePage(path string, name string, content string, source string, tags []st
 	for _, i := range tags {
 		t = append(t, *makeTag(i))
 	}
+
+	name = strings.Replace(name, " ", "_", -1)
 
 	return &Page{
 		Name:    name,
