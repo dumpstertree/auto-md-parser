@@ -28,19 +28,28 @@ func buildPageTags(allPages []Page) []Page {
 	for tag, taggedPages := range allTags {
 
 		content := ""
-		for _, page := range taggedPages {
-			content += "<a href='" + page.Name + ".html'>" + page.Name + "</a>\\\n"
+		for i, page := range taggedPages {
+			content += "<a href='" + page.Name + ".html'>" + page.Name + "</a>\n"
+			if i != len(taggedPages)-1 {
+				content += "\\"
+			}
 		}
 
-		pages = append(pages, *makePage("Tags/", tag.LinkName, content, "", nil))
+		pages = append(pages, *makePage("Tags/All/", tag.LinkName, content, "", nil))
 	}
 
 	// generate page for all tags
 	allTagsContent := ""
+	x := 0
 	for tag, _ := range allTags {
-		allTagsContent += "<a href='" + tag.LinkName + ".html'>" + tag.DisplayName + "</a>\\\n"
+
+		allTagsContent += "<a href='" + tag.LinkName + ".html'>" + tag.DisplayName + "</a>\n"
+		if x != len(allTags)-1 {
+			allTagsContent += "\\"
+		}
+		x++
 	}
-	pages = append(pages, *makePage("", "Tags", allTagsContent, "", nil))
+	pages = append(pages, *makePage("Tags/", "All", allTagsContent, "", nil))
 
 	// return
 	return pages
