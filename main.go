@@ -323,11 +323,12 @@ func parseCompoundCollumnString(input string, sheet string, row int, allPages []
 }
 
 type Page struct {
-	Name    string
-	Path    string
-	Content string
-	Source  string
-	Tags    []PageTag
+	Name     string
+	LinkName string
+	Path     string
+	Content  string
+	Source   string
+	Tags     []PageTag
 }
 
 type PageTag struct {
@@ -356,7 +357,7 @@ func (p Page) ApplyLinks(pages []Page) {
 	}
 }
 
-func makePage(path string, name string, content string, source string, tags []string) *Page {
+func makePageExplicit(path string, name string, linkName string, content string, source string, tags []string) *Page {
 
 	t := []PageTag{}
 	for _, i := range tags {
@@ -366,11 +367,31 @@ func makePage(path string, name string, content string, source string, tags []st
 	name = strings.Replace(name, " ", "_", -1)
 
 	return &Page{
-		Name:    name,
-		Path:    path,
-		Content: content,
-		Source:  source,
-		Tags:    t,
+		Name:     name,
+		LinkName: linkName,
+		Path:     path,
+		Content:  content,
+		Source:   source,
+		Tags:     t,
+	}
+}
+func makePage(path string, name string, content string, source string, tags []string) *Page {
+
+	t := []PageTag{}
+	for _, i := range tags {
+		t = append(t, *makeTag(i))
+	}
+
+	linkName := strings.Replace(name, " ", "_", -1)
+	linkName = strings.ToLower(linkName)
+
+	return &Page{
+		Name:     name,
+		LinkName: linkName,
+		Path:     path,
+		Content:  content,
+		Source:   source,
+		Tags:     t,
 	}
 }
 func makeTag(name string) *PageTag {

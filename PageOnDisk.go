@@ -33,7 +33,7 @@ func WriteToDisk(path string, page Page, useFooter bool) *PageOnDisk {
 		content += "</div>\n"
 	}
 
-	err := os.WriteFile(path+page.Name+".md", []byte(content), 0644)
+	err := os.WriteFile(path+page.LinkName+".md", []byte(content), 0644)
 	if err != nil {
 		fmt.Println("Failed to write file at : " + path)
 		return nil

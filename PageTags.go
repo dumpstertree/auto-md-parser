@@ -36,7 +36,7 @@ func buildPageTags(allPages []Page) []Page {
 			content += "\n"
 		}
 
-		pages = append(pages, *makePage("Tags/Index/", tag.LinkName, content, "", nil))
+		pages = append(pages, *makePageExplicit("Tags/Index/", tag.DisplayName, tag.LinkName, content, "", nil))
 	}
 
 	// generate page for all tags
