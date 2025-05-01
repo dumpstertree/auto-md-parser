@@ -18,7 +18,6 @@
 	- [transplant-tasks](transplant-tasks.md)
 # Tags
 - [Index](index.md)
-- [Index]()
 	- [#Budgeting](tag-Budgeting.md)
 	- [#Food](tag-Food.md)
 	- [#Gardening](tag-Gardening.md)

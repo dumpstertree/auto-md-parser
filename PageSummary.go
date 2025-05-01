@@ -25,9 +25,9 @@ func buildPageSumary(pages []Page) []Page {
 	paths := []string{}
 	pathForName := make(map[string]string)
 	for _, k := range pages {
-		p := k.Path + k.LinkName
+		p := k.Path + k.Name
 		paths = append(paths, p)
-		pathForName[p] = k.Name
+		pathForName[p] = k.LinkName
 	}
 
 	// sort
@@ -68,7 +68,7 @@ func buildPageSumary(pages []Page) []Page {
 				}
 
 				// add link
-				content += "- [" + pathForName[path] + "](" + subPath + ".md)\n"
+				content += "- [" + subPath + "](" + pathForName[path] + ".md)\n"
 
 			} else {
 
