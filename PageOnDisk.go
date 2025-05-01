@@ -22,7 +22,7 @@ func WriteToDisk(path string, page Page, useFooter bool) *PageOnDisk {
 		content += "<div style='page-break-after: always;'></div>\n"
 
 		for _, tag := range page.Tags {
-			content += "<a href='" + "_" + tag.LinkName + ".md'>" + "_" + tag.DisplayName + "</a>, "
+			content += "<a href='" + tag.LinkName + ".md'>" + tag.DisplayName + "</a>, "
 		}
 		content += "\n"
 
