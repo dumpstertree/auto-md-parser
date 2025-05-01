@@ -25,7 +25,7 @@ func buildPageSumary(pages []Page) []Page {
 	paths := []string{}
 	pathForName := make(map[string]string)
 	for _, k := range pages {
-		p := k.Path + k.Name
+		p := k.Path + k.DisplayName
 		paths = append(paths, p)
 		pathForName[p] = k.LinkName
 	}

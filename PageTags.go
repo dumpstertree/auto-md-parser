@@ -29,7 +29,7 @@ func buildPageTags(allPages []Page) []Page {
 
 		content := ""
 		for i, page := range taggedPages {
-			content += "<a href='" + page.Name + ".html'>" + page.Name + "</a>"
+			content += "<a href='" + page.LinkName + ".html'>" + page.DisplayName + "</a>"
 			if i != len(taggedPages)-1 {
 				content += "\\"
 			}
