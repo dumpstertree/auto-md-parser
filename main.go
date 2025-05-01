@@ -348,7 +348,7 @@ func (p Page) ApplyLinks(pages []Page) {
 				continue
 			}
 
-			w = "<a href='" + c.LinkName + ".md'>" + w + "</a>"
+			w = "<a href='" + c.LinkName + ".html'>" + w + "</a>"
 			break
 		}
 
