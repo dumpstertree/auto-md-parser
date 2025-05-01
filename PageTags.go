@@ -32,7 +32,7 @@ func buildPageTags(allPages []Page) []Page {
 			content += "<a href='" + page.Name + ".html'>" + page.Name + "</a>\n"
 		}
 
-		pages = append(pages, *makePage("", tag.LinkName, content, "", nil))
+		pages = append(pages, *makePage("Tags/", tag.LinkName, content, "", nil))
 	}
 
 	// generate page for all tags

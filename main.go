@@ -299,7 +299,7 @@ func parseCompoundCollumnString(input string, sheet string, row int, allPages []
 			}
 			//fmt.Println("check page " + w + " : " + x)
 			if has {
-				lineEnd = strings.ReplaceAll(lineEnd, w, "<a href='"+x+".html'>"+strings.ReplaceAll(w, " ", "")+"</a>")
+				lineEnd = strings.ReplaceAll(lineEnd, w, "<a href='"+x+".md'>"+strings.ReplaceAll(w, " ", "")+"</a>")
 
 			}
 		}
@@ -347,7 +347,7 @@ func (p Page) ApplyLinks(pages []Page) {
 				continue
 			}
 
-			w = "<a href='" + c.Name + ".html'>" + w + "</a>"
+			w = "<a href='" + c.Name + ".md'>" + w + "</a>"
 			break
 		}
 

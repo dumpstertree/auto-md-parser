@@ -26,7 +26,7 @@ Calories Of Servings: $1.40
 <div style='page-break-after: always;'></div>
 ---
 <div style='page-break-after: always;'></div>
-<a href='_tag-Food.html'>_#Food</a>, <a href='_tag-Budgeting.html'>_#Budgeting</a>, 
+<a href='_tag-Food.md'>_#Food</a>, <a href='_tag-Budgeting.md'>_#Budgeting</a>, 
 <div style='text-align: right'>
 <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vSAyak9YlStJt0W2QiXNHVF8FODXyzkGh0HTz9XkhPPqGQ7IycIP1MG9gofJCHmb8c_vAcLKiqcYQXQ/pub?output=xlsx'>SOURCE</a>
 </div>

@@ -65,7 +65,7 @@ func buildPageSumary(pages []Page) []Page {
 				}
 
 				// add link
-				content += "- [" + subPath + "](" + subPath + ".html)\n"
+				content += "- [" + subPath + "](" + subPath + ".md)\n"
 
 			} else {
 
