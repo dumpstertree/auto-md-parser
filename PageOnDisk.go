@@ -38,7 +38,6 @@ func WriteToDisk(path string, page Page, useFooter bool) *PageOnDisk {
 		fmt.Println("Failed to write file at : " + path)
 		return nil
 	}
-
 	return &PageOnDisk{Path: path, Content: content}
 }
 func (t *PageOnDisk) Delete() {

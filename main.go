@@ -114,7 +114,7 @@ func Reload() {
 	}
 
 	// cleanup
-	cleanupUnlinked(p.ParsedPages)
+	//cleanupUnlinked(p.ParsedPages)
 
 	// unload
 	d.Clear()

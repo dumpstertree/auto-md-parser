@@ -17,7 +17,7 @@
 	- [pflanzarbeiten](pflanzarbeiten.md)
 	- [transplant-tasks](transplant-tasks.md)
 # Tags
-- [All](All.md)
+- [Index](Index.md)
 	- [tag-Budgeting](tag-Budgeting.md)
 	- [tag-Food](tag-Food.md)
 	- [tag-Gardening](tag-Gardening.md)
