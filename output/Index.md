@@ -1,8 +1,8 @@
+#Gardening \
+#Off-Grid \
 #Food \
 #Budgeting \
-#Plants \
-#Gardening \
-#Off-Grid
+#Plants
 <div style='page-break-after: always;'></div>
 ---
 <div style='page-break-after: always;'></div>

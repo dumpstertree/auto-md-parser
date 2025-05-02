@@ -67,7 +67,7 @@ func main() {
 func Reload() {
 
 	// clear any old data
-	clearCache()
+	clearCachedImages()
 
 	// data loader
 	d := new(DataLoader)
@@ -96,17 +96,19 @@ func Reload() {
 		// apply links
 		allPages[i] = p.ApplyInternalLinks(allPages)
 		allPages[i] = p.ApplyExternalLinks(allPages)
-
-		// write file
-		WriteToDisk(outputPath, p, true)
 	}
 
 	// load page summary
 	if generateSummary {
-		for _, i := range makePageSummary(allPages).Pages {
-			WriteToDisk(outputPath, i, false)
-		}
+		allPages = append(allPages, makePageSummary(allPages).Pages...)
 	}
+
+	// write all
+	for _, i := range allPages {
+		WriteToDisk(outputPath, i, i.DisplayName != "SUMMARY")
+	}
+
+	clearUnusedMD(allPages)
 
 	// unload
 	d.Clear()
@@ -124,10 +126,8 @@ func arraysEqual(arr1, arr2 []string) bool {
 	return true
 }
 
-func clearCache() {
-	for _, i := range find(outputPath, ".md") {
-		os.Remove(i)
-	}
+func clearCachedImages() {
+
 	for _, i := range find(outputPath, ".png") {
 		os.Remove(i)
 	}
@@ -135,95 +135,21 @@ func clearCache() {
 		os.Remove(i)
 	}
 }
+func clearUnusedMD(pages []Page) {
+	for _, i := range find(outputPath, ".md") {
+		split := strings.Split(i, "/")
+		path := strings.ReplaceAll(split[len(split)-1], ".md", "")
+		contained := false
+		for _, p := range pages {
 
-// cleanup
-func cleanupUnlinked(allPages map[*excelize.File][]string) {
-	for _, p1 := range find(outputPath, ".png") {
-		// remove the ext
-		p1Split := strings.Split(p1, "/")
-		file := p1Split[len(p1Split)-1]
-
-		// setup a flag
-		match := false
-
-		for _, p3 := range images {
-
-			// if they are equal mark flag as match
-			isMatch := file == p3
-			if isMatch {
-				match = true
+			if strings.EqualFold(path, p.LinkName) {
+				contained = true
 				break
 			}
 		}
-
-		// no match was found for file so remove
-		if !match {
-			os.Remove(p1)
-		}
-	}
-	for _, p1 := range find(outputPath, ".jpg") {
-		// remove the ext
-		p1Split := strings.Split(p1, "/")
-		file := p1Split[len(p1Split)-1]
-
-		// setup a flag
-		match := false
-
-		for _, p3 := range images {
-
-			// if they are equal mark flag as match
-			isMatch := file == p3
-			if isMatch {
-				match = true
-				break
-			}
-		}
-
-		// no match was found for file so remove
-		if !match {
-			os.Remove(p1)
-		}
-	}
-	// remove all pages currently there
-	for _, p1 := range find(outputPath, ".md") {
-
-		// remove the ext
-		p1Split := strings.Split(p1, "/")
-		file := p1Split[len(p1Split)-1]
-		file = strings.ReplaceAll(file, ".md", "")
-
-		// if this is the summary skip
-		if file == "SUMMARY" {
-			continue
-		}
-		if file == "Tags" {
-			continue
-		}
-		if strings.ContainsRune(file, '_') {
-			continue
-		}
-
-		if strings.Contains(file, "tag") {
-			continue
-		}
-
-		// setup a flag
-		match := false
-		for _, p2 := range allPages {
-
-			for _, p3 := range p2 {
-
-				// if they are equal mark flag as match
-				isMatch := file == p3
-				if isMatch {
-					match = true
-					break
-				}
-			}
-		}
-		// no match was found for file so remove
-		if !match {
-			os.Remove(p1)
+		if !contained {
+			fmt.Println("Removing Unused Markdown at : " + i + " with name :" + path)
+			os.Remove(i)
 		}
 	}
 }
