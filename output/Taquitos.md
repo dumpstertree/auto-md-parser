@@ -1,4 +1,4 @@
-## <a href='taquitos.html'>Taquitos</a>
+## Taquitos
 ## Servings
 Number Of Servings: 15
 ## Cost Breakdown

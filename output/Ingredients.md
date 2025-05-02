@@ -1,4 +1,4 @@
-## <a href='ingredients.html'>Ingredients</a>
+## Ingredients
 ## Price
 | Ingredient | Price (oz) |
 | ------------ | ------------ |

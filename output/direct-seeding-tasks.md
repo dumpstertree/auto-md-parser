@@ -1,4 +1,4 @@
-## <a href='direct-seeding-tasks.html'>direct-seeding-tasks</a>
+## direct-seeding-tasks
 ## Recorded Notes
 <b><i><font color=green></b></i></font><div style='page-break-after: always;'></div>
 ---

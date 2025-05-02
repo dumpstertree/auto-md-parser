@@ -1,4 +1,4 @@
-## <a href='burgers.html'>Burgers</a>
+## Burgers
 ## Servings
 Number Of Servings: 15
 ## Cost Breakdown

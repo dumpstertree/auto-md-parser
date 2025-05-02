@@ -1,4 +1,4 @@
-## <a href='sauce.html'>Sauce</a>
+## Sauce
 ## Servings
 Number Of Servings: 6
 ## Cost Breakdown

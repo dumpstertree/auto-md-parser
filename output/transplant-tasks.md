@@ -1,4 +1,4 @@
-## <a href='transplant-tasks.html'>transplant-tasks</a>
+## transplant-tasks
 ## Recorded Notes
 <b><i><font color=green></b></i></font><div style='page-break-after: always;'></div>
 ---

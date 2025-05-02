@@ -1,4 +1,4 @@
-## <a href='meatballs.html'>Meatballs</a>
+## Meatballs
 ## Servings
 Number Of Servings: 
 ## Cost Breakdown

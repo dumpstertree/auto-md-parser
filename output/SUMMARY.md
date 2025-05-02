@@ -8,6 +8,9 @@
 		- [Meatballs](meatballs.md)
 		- [Sauce](sauce.md)
 		- [Taquitos](taquitos.md)
+# Hosted
+- [Services]()
+	- [Azuracast](azuracast.md)
 # Planting
 - [Notes]()
 	- [direct-seeding-tasks](direct-seeding-tasks.md)

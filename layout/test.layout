@@ -1,0 +1,34 @@
+{
+    "Title": "Services",
+    "URL": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSTe7J7BmZa45Xsl8T6RyUTVQ2idoOBgFCA3dWAYkXPLyf6EDZ4_3MO1BEO2KJ1_zZr3fFIWMTUo4tY/pub?output=xlsx",
+    "Path": "Hosted/Services",
+    "IncludeSheets" : [
+    ],
+    "ExcludeSheets" : [
+        "Active-Services"
+    ],
+    "sections": [
+        {
+            "type"      : "subheader",
+            "content"   : "Active Services"
+        },
+        {
+            "type"      : "table",
+            "rowmin"    : 2,
+            "content"   : [
+                {
+                    "header": "Service",
+                    "content": "@A"
+                },
+                {
+                    "header": "Content",
+                    "content": "@B"
+                },
+                {
+                    "header": "Address",
+                    "content": "@C"
+                }
+            ]
+        }
+    ]
+}

@@ -1,4 +1,4 @@
-## <a href='pflanzarbeiten.html'>pflanzarbeiten</a>
+## pflanzarbeiten
 ## Recorded Notes
 <b><i><font color=green> : Heirloom tomatoes (1) - San Marzano II
  : Cherry tomatoes (5) - Sakura

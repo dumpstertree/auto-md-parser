@@ -1,4 +1,4 @@
-## <a href='general-tasks.html'>general-tasks</a>
+## general-tasks
 ## Recorded Notes
 <b><i><font color=green></b></i></font><div style='page-break-after: always;'></div>
 ---

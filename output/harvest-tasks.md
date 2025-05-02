@@ -1,4 +1,4 @@
-## <a href='harvest-tasks.html'>harvest-tasks</a>
+## harvest-tasks
 ## Recorded Notes
 <b><i><font color=green></b></i></font><div style='page-break-after: always;'></div>
 ---

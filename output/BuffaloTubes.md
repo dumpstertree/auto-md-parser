@@ -1,4 +1,4 @@
-## <a href='buffalotubes.html'>BuffaloTubes</a>
+## BuffaloTubes
 ## Servings
 Number Of Servings: 13
 ## Cost Breakdown
