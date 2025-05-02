@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/fsnotify/fsnotify"
 )
@@ -25,28 +26,23 @@ func (t *DirectoryWatcher) IsDirty() bool {
 	}
 
 	if w != nil {
-		fmt.Println("watch loop ")
-		i := 0
+		fmt.Println("Watching directory : " + inputPath)
 		//for {
 		select {
-		// Read from Errors.
-		case err, ok := <-w.Errors:
-			if !ok { // Channel was closed (i.e. Watcher.Close() was called).
-				return false
-			}
-			fmt.Println("ERROR: %s", err)
-		// Read from Events.
+
 		case e, ok := <-w.Events:
-			if !ok { // Channel was closed (i.e. Watcher.Close() was called).
+
+			// not ok
+			if !ok {
 				return false
 			}
 
-			// Just print the event nicely aligned, and keep track how many
-			// events we've seen.
-			i++
-			fmt.Println("%3d %s", i, e)
-			fmt.Println("set dirty")
+			// invalid type
+			if !strings.Contains(e.Name, ".layout") {
+				return false
+			}
 
+			fmt.Println("Change found in file : " + e.Name)
 			//
 			return true
 		}
