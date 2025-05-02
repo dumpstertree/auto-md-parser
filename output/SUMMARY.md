@@ -18,8 +18,8 @@
 	- [transplant-tasks](transplant-tasks.md)
 # Tags
 - [Index](index.md)
-	- [#Budgeting](tag-Budgeting.md)
-	- [#Food](tag-Food.md)
-	- [#Gardening](tag-Gardening.md)
-	- [#Off-Grid](tag-Off-Grid.md)
-	- [#Plants](tag-Plants.md)
+	- [#budgeting](tag-budgeting.md)
+	- [#food](tag-food.md)
+	- [#gardening](tag-gardening.md)
+	- [#off-grid](tag-off-grid.md)
+	- [#plants](tag-plants.md)

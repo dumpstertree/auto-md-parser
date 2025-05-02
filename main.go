@@ -8,6 +8,7 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strconv"
 	"strings"
 	"time"
@@ -92,10 +93,10 @@ func Reload() {
 
 	// iterate over each page so far
 	for i, p := range allPages {
-
-		// apply links
-		allPages[i] = p.ApplyInternalLinks(allPages)
-		allPages[i] = p.ApplyExternalLinks(allPages)
+		allPages[i].Content = p.ApplyInternalLinks(allPages)
+	}
+	for i, p := range allPages {
+		allPages[i].Content = p.ApplyExternalLinks(allPages)
 	}
 
 	// load page summary
@@ -108,6 +109,7 @@ func Reload() {
 		WriteToDisk(outputPath, i, i.DisplayName != "SUMMARY")
 	}
 
+	// cleanup
 	clearUnusedMD(allPages)
 
 	// unload
@@ -238,7 +240,7 @@ type PageTag struct {
 	DisplayName string
 }
 
-func (p Page) ApplyExternalLinks(pages []Page) Page {
+func (p Page) ApplyExternalLinks(pages []Page) string {
 	content := p.Content
 	for _, w := range strings.Split(content, " ") {
 
@@ -256,18 +258,17 @@ func (p Page) ApplyExternalLinks(pages []Page) Page {
 
 	}
 
-	p.Content = content
-	return p
+	return content
 }
-func (p Page) ApplyInternalLinks(pages []Page) Page {
+func (p Page) ApplyInternalLinks(pages []Page) string {
 
 	content := p.Content
 	for _, c := range pages {
-		content = strings.ReplaceAll(content, c.DisplayName, "<a href='"+c.LinkName+".html'>"+c.DisplayName+"</a>")
+		re := regexp.MustCompile(`(?i)` + c.DisplayName)
+		content = re.ReplaceAllString(content, "<a href='"+c.LinkName+".html'>"+c.DisplayName+"</a>")
+		// content = strings.ReplaceAll(content, c.DisplayName, "<a href='"+c.LinkName+".html'>"+c.DisplayName+"</a>")
 	}
-	p.Content = content
-
-	return p
+	return content
 }
 
 func makePageExplicit(path string, name string, linkName string, content string, source string, tags []string) *Page {
@@ -310,8 +311,8 @@ func makePage(path string, name string, content string, source string, tags []st
 func makeTag(name string) *PageTag {
 
 	return &PageTag{
-		LinkName:    "tag-" + name,
-		DisplayName: "#" + name,
+		LinkName:    "tag-" + strings.ToLower(strings.ReplaceAll(name, " ", "_")),
+		DisplayName: "#" + strings.ToLower(strings.ReplaceAll(name, " ", "_")),
 	}
 }
 

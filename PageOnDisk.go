@@ -17,20 +17,25 @@ func WriteToDisk(path string, page Page, useFooter bool) *PageOnDisk {
 
 	// add footer if requested
 	if useFooter {
+
 		content += "<div style='page-break-after: always;'></div>\n"
 		content += "---\n"
 		content += "<div style='page-break-after: always;'></div>\n"
 
-		for _, tag := range page.Tags {
-			content += "<a href='" + tag.LinkName + ".html'>" + tag.DisplayName + "</a>, "
+		// only add tags if exist
+		if len(page.Tags) > 0 {
+			for _, tag := range page.Tags {
+				content += "<a href='" + tag.LinkName + ".html'>" + tag.DisplayName + "</a>, "
+			}
+			content += "\n"
 		}
-		content += "\n"
 
 		// create source link
-
-		content += "<div style='text-align: right'>\n"
-		content += "<a href='" + page.Source + "'>SOURCE</a>\n"
-		content += "</div>\n"
+		if page.Source != "" {
+			content += "<div style='text-align: right'>\n"
+			content += "<a href='" + page.Source + "'>SOURCE</a>\n"
+			content += "</div>\n"
+		}
 	}
 
 	err := os.WriteFile(path+page.LinkName+".md", []byte(content), 0644)

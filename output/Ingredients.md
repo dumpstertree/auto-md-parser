@@ -1,4 +1,4 @@
-## Ingredients
+## <a href='ingredients.html'>Ingredients</a>
 ## Price
 | Ingredient | Price (oz) |
 | ------------ | ------------ |
@@ -20,7 +20,7 @@
 | Tomato - Crushed | $0.06 |
 | Cheese - Cheddar | $0.22 |
 | Tomato - Paste | $0.15 |
-| Buffalo Sauce | $0.21 |
+| Buffalo <a href='sauce.html'>Sauce</a> | $0.21 |
 | Blue Cheese - Crumble | $0.50 |
 | Blue Cheese - Dressing | $0.17 |
 | Salsa | $0.13 |
@@ -49,7 +49,7 @@
 | Tomato - Crushed | 0.00 | 0.00 | 0.00 | 0.00 |
 | Cheese - Cheddar | 0.00 | 0.00 | 0.00 | 0.00 |
 | Tomato - Paste | 0.00 | 0.00 | 0.00 | 0.00 |
-| Buffalo Sauce | 0.00 | 0.00 | 0.00 | 0.00 |
+| Buffalo <a href='sauce.html'>Sauce</a> | 0.00 | 0.00 | 0.00 | 0.00 |
 | Blue Cheese - Crumble | 0.00 | 0.00 | 0.00 | 0.00 |
 | Blue Cheese - Dressing | 0.00 | 0.00 | 0.00 | 0.00 |
 | Salsa | 0.00 | 0.00 | 0.00 | 0.00 |
@@ -60,7 +60,6 @@
 <div style='page-break-after: always;'></div>
 ---
 <div style='page-break-after: always;'></div>
-
 <div style='text-align: right'>
 <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vSAyak9YlStJt0W2QiXNHVF8FODXyzkGh0HTz9XkhPPqGQ7IycIP1MG9gofJCHmb8c_vAcLKiqcYQXQ/pub?output=xlsx'>SOURCE</a>
 </div>

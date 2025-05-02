@@ -1,13 +1,9 @@
-nursery-tasks \
-transplant-tasks \
-direct-seeding-tasks \
-pflanzarbeiten \
-harvest-tasks \
-general-tasks
+<a href='nursery-tasks.html'>nursery-tasks</a> \
+<a href='transplant-tasks.html'>transplant-tasks</a> \
+<a href='direct-seeding-tasks.html'>direct-seeding-tasks</a> \
+<a href='pflanzarbeiten.html'>pflanzarbeiten</a> \
+<a href='harvest-tasks.html'>harvest-tasks</a> \
+<a href='general-tasks.html'>general-tasks</a>
 <div style='page-break-after: always;'></div>
 ---
 <div style='page-break-after: always;'></div>
-
-<div style='text-align: right'>
-<a href=''>SOURCE</a>
-</div>
