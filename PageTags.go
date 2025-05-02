@@ -29,9 +29,10 @@ func buildPageTags(allPages []Page) []Page {
 
 		content := ""
 		for i, page := range taggedPages {
-			content += "<a href='" + page.LinkName + ".html'>" + page.DisplayName + "</a>"
+			//content += "<a href='" + page.LinkName + ".html'>" + page.DisplayName + "</a>"
+			content += page.DisplayName
 			if i != len(taggedPages)-1 {
-				content += "\\"
+				content += " \\"
 			}
 			content += "\n"
 		}
@@ -45,9 +46,10 @@ func buildPageTags(allPages []Page) []Page {
 	x := 0
 	for tag, _ := range allTags {
 
-		allTagsContent += "<a href='" + tag.LinkName + ".html'>" + tag.DisplayName + "</a>"
+		//allTagsContent += "<a href='" + tag.LinkName + ".html'>" + tag.DisplayName + "</a>"
+		allTagsContent += tag.DisplayName
 		if x != len(allTags)-1 {
-			allTagsContent += "\\"
+			allTagsContent += " \\"
 		}
 		allTagsContent += "\n"
 		x++

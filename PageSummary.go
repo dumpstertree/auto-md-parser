@@ -81,32 +81,8 @@ func buildPageSumary(pages []Page) []Page {
 				content += "- [" + subPath + "]()\n"
 			}
 		}
-
-		// for _, g := range split {
-		// 	for f := 1; f < len(split); f++ {
-		// 		content += "	"
-		// 	}
-
-		// 	fmt.Println("add " + g)
-
-		// 	content += "- [" + g + "](" + strings.ReplaceAll(g, " ", "") + ".md)"
-		// 	content += "\n"
-		// }
 	}
-
-	// content += "# Tags\n"
-	// content += "- [Tags](Tags.md)\n"
-	// for _, x := range summaryTags {
-	// 	content += "	- [" + x + "](" + strings.ReplaceAll(x, " ", "") + ".md)"
-	// 	content += "\n"
-	// }
-
-	// err := os.WriteFile(outputPath+"SUMMARY.md", []byte(out), 0644)
-	// if err != nil {
-	// 	panic(err)
-	// }
-
 	return []Page{
-		*makePage("", "SUMMARY", content, "", nil),
+		*makePageExplicit("", "SUMMARY", "SUMMARY", content, "", nil),
 	}
 }

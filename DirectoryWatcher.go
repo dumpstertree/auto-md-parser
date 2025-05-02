@@ -9,6 +9,9 @@ import (
 type DirectoryWatcher struct {
 }
 
+var w *fsnotify.Watcher
+var paths []string
+
 func (t *DirectoryWatcher) IsDirty() bool {
 	newPaths := find(inputPath, ".layout")
 	if !arraysEqual(paths, newPaths) || w == nil {
@@ -42,7 +45,6 @@ func (t *DirectoryWatcher) IsDirty() bool {
 			// events we've seen.
 			i++
 			fmt.Println("%3d %s", i, e)
-			isDirty = true
 			fmt.Println("set dirty")
 
 			//

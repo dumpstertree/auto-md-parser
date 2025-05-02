@@ -12,22 +12,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fsnotify/fsnotify"
-
 	"github.com/google/uuid"
 
 	"github.com/xuri/excelize/v2"
 )
 
-const summaryName = "SUMMARY"
-
 var outputPath = "/media/dumpstertree/67FF-9C76/Development/Docker/mdBook/content/src/"
 var inputPath = "./layout/"
 
 var images = []string{}
-var isDirty = false
-var paths []string
-var w *fsnotify.Watcher
 
 var generateTags = true
 var generateContent = true
@@ -73,6 +66,9 @@ func main() {
 
 func Reload() {
 
+	// clear any old data
+	clearCache()
+
 	// data loader
 	d := new(DataLoader)
 	d.Load(inputPath)
@@ -89,32 +85,28 @@ func Reload() {
 		allPages = append(allPages, makePageContent(d, p).Pages...)
 	}
 
-	// apply links to other pages
-	for _, p := range allPages {
-		p.ApplyLinks(allPages)
-	}
-
 	// load page tags
 	if generateTags {
 		allPages = append(allPages, makePageTags(allPages).Pages...)
 	}
 
-	// write all pages
-	for _, i := range allPages {
-		WriteToDisk(outputPath, i, true)
+	// iterate over each page so far
+	for i, p := range allPages {
+
+		// apply links
+		allPages[i] = p.ApplyInternalLinks(allPages)
+		allPages[i] = p.ApplyExternalLinks(allPages)
+
+		// write file
+		WriteToDisk(outputPath, p, true)
 	}
 
 	// load page summary
 	if generateSummary {
-		summaryPages := makePageSummary(allPages).Pages
-		for _, i := range summaryPages {
+		for _, i := range makePageSummary(allPages).Pages {
 			WriteToDisk(outputPath, i, false)
 		}
-
 	}
-
-	// cleanup
-	//cleanupUnlinked(p.ParsedPages)
 
 	// unload
 	d.Clear()
@@ -130,6 +122,18 @@ func arraysEqual(arr1, arr2 []string) bool {
 		}
 	}
 	return true
+}
+
+func clearCache() {
+	for _, i := range find(outputPath, ".md") {
+		os.Remove(i)
+	}
+	for _, i := range find(outputPath, ".png") {
+		os.Remove(i)
+	}
+	for _, i := range find(outputPath, ".jpg") {
+		os.Remove(i)
+	}
 }
 
 // cleanup
@@ -189,7 +193,7 @@ func cleanupUnlinked(allPages map[*excelize.File][]string) {
 		file = strings.ReplaceAll(file, ".md", "")
 
 		// if this is the summary skip
-		if file == summaryName {
+		if file == "SUMMARY" {
 			continue
 		}
 		if file == "Tags" {
@@ -291,34 +295,6 @@ func parseCompoundCollumnString(input string, sheet string, row int, allPages []
 		last = y
 	}
 
-	for _, w := range strings.Split(lineEnd, " ") {
-		for _, x := range allPages {
-			has := strings.EqualFold(w, x)
-			if has {
-				fmt.Println("match")
-			}
-			//fmt.Println("check page " + w + " : " + x)
-			if has {
-				lineEnd = strings.ReplaceAll(lineEnd, w, "<a href='"+x+".md'>"+strings.ReplaceAll(w, " ", "")+"</a>")
-
-			}
-		}
-	}
-	for _, w := range strings.Split(lineEnd, " ") {
-		_, err := url.ParseRequestURI(w)
-		if err != nil {
-			continue
-		}
-
-		u, err := url.Parse(w)
-		if err != nil || u.Scheme == "" || u.Host == "" {
-			continue
-		}
-
-		lineEnd = strings.ReplaceAll(lineEnd, w, "<a href="+w+">"+w+"</a>")
-
-	}
-
 	return lineEnd
 }
 
@@ -336,25 +312,36 @@ type PageTag struct {
 	DisplayName string
 }
 
-func (p Page) ApplyLinks(pages []Page) {
+func (p Page) ApplyExternalLinks(pages []Page) Page {
+	content := p.Content
+	for _, w := range strings.Split(content, " ") {
 
-	content := ""
-	split := strings.Split(p.Content, " ")
-	for _, w := range split {
-		for _, c := range pages {
-
-			isSame := c.DisplayName == w
-			if !isSame {
-				continue
-			}
-
-			w = "<a href='" + c.LinkName + ".html'>" + w + "</a>"
-			break
+		_, err := url.ParseRequestURI(w)
+		if err != nil {
+			continue
 		}
 
-		content += w
-		content += " "
+		u, err := url.Parse(w)
+		if err != nil || u.Scheme == "" || u.Host == "" {
+			continue
+		}
+
+		content = strings.ReplaceAll(content, w, "<a href="+w+">"+w+"</a>")
+
 	}
+
+	p.Content = content
+	return p
+}
+func (p Page) ApplyInternalLinks(pages []Page) Page {
+
+	content := p.Content
+	for _, c := range pages {
+		content = strings.ReplaceAll(content, c.DisplayName, "<a href='"+c.LinkName+".html'>"+c.DisplayName+"</a>")
+	}
+	p.Content = content
+
+	return p
 }
 
 func makePageExplicit(path string, name string, linkName string, content string, source string, tags []string) *Page {
