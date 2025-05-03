@@ -1,7 +1,6 @@
 # <p style='font-size: 15px;'>Hosted/Services/</p>
 # <p style='font-size: 40px;'>Azuracast</p>
-<br>## Azuracast
-## Active Services
+<br>## Active Services
 | Service | Content | Address |
 | ------------ | ------------ | ------------ |
 | Daydreaming | <a href=https://radio.dumpstertree.com/public/daydreaming>https://radio.dumpstertree.com/public/daydreaming</a> |  |

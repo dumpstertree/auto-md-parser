@@ -1,5 +1,7 @@
 package main
 
+import "sort"
+
 type PageTags struct {
 	Content  []string
 	Content2 string
@@ -27,11 +29,15 @@ func buildPageTags(allPages []Page) []Page {
 	// generate pages for each tag
 	for tag, taggedPages := range allTags {
 
+		sortedTags := taggedPages
+		sort.Slice(sortedTags, func(i, j int) bool {
+			return sortedTags[i].DisplayName < sortedTags[j].DisplayName
+		})
+
 		content := ""
-		for i, page := range taggedPages {
-			//content += "<a href='" + page.LinkName + ".html'>" + page.DisplayName + "</a>"
+		for i, page := range sortedTags {
 			content += page.DisplayName
-			if i != len(taggedPages)-1 {
+			if i != len(sortedTags)-1 {
 				content += " \\"
 			}
 			content += "\n"
@@ -44,11 +50,20 @@ func buildPageTags(allPages []Page) []Page {
 
 	allTagsContent := ""
 	x := 0
-	for tag, _ := range allTags {
+
+	keys := make([]PageTag, 0, len(allTags))
+	for pt := range allTags {
+		keys = append(keys, pt)
+	}
+	sort.Slice(keys, func(i, j int) bool {
+		return keys[i].DisplayName < keys[j].DisplayName
+	})
+
+	for i, key := range keys {
 
 		//allTagsContent += "<a href='" + tag.LinkName + ".html'>" + tag.DisplayName + "</a>"
-		allTagsContent += " " + tag.DisplayName
-		if x != len(allTags)-1 {
+		allTagsContent += " " + key.DisplayName
+		if i != len(allTags)-1 {
 			allTagsContent += " \\"
 		}
 		allTagsContent += "\n"

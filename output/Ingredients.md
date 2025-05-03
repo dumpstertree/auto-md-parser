@@ -1,7 +1,6 @@
 # <p style='font-size: 15px;'>Cooking/</p>
 # <p style='font-size: 40px;'>Ingredients</p>
-<br>## Ingredients
-## Price
+<br>## Price
 | Ingredient | Price (oz) |
 | ------------ | ------------ |
 | Fajita (Small) | $0.18 |

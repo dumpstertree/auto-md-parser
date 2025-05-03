@@ -39,10 +39,6 @@ func buildPageContent(layoutToFile map[*OrderedLayout]*excelize.File, allPages m
 			// page content
 			var content = ""
 
-			// add mandatory header
-			content += "## " + sheet
-			content += "\n"
-
 			// add all subsections
 			for _, subsection := range layout.LayoutSubsection {
 				content = subsection.Write(content, sheet, allPagesFlat, file)

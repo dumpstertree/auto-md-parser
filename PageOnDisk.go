@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"sort"
 )
 
 type PageOnDisk struct {
@@ -38,8 +39,16 @@ func WriteToDisk(path string, page Page, useFooter bool) *PageOnDisk {
 
 		// only add tags if exist
 		if useTags {
-			for _, tag := range page.Tags {
-				content += "<a href='" + tag.LinkName + ".html'>" + tag.DisplayName + "</a>, "
+			sortedTags := page.Tags
+			sort.Slice(sortedTags, func(i, j int) bool {
+				return sortedTags[i].DisplayName < sortedTags[j].DisplayName
+			})
+
+			for i, tag := range sortedTags {
+				content += "<a href='" + tag.LinkName + ".html'>" + tag.DisplayName + "</a>"
+				if i < len(page.Tags)-2 {
+					content += ", "
+				}
 			}
 			content += "\n"
 		}
