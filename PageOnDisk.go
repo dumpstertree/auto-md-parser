@@ -11,27 +11,42 @@ type PageOnDisk struct {
 }
 
 func WriteToDisk(path string, page Page, useFooter bool) *PageOnDisk {
-
 	//
-	content := page.Content
+	content := ""
+
+	if useFooter {
+		content += "# " + page.DisplayName + "\n"
+	}
+
+	content += page.Content
 
 	// add footer if requested
 	if useFooter {
 
-		content += "<div style='page-break-after: always;'></div>\n"
-		content += "---\n"
-		content += "<div style='page-break-after: always;'></div>\n"
+		useTags := len(page.Tags) > 0
+		useSource := page.Source != ""
+
+		if useTags || useSource {
+			content += "<div style='page-break-after: always;'></div>\n"
+			content += "<div style='page-break-after: always;'></div>\n"
+			content += "<hr/>\n"
+			content += "<div style='page-break-after: always;'></div>\n"
+			content += "<div style='page-break-after: always;'></div>\n"
+		}
 
 		// only add tags if exist
-		if len(page.Tags) > 0 {
+		if useTags {
 			for _, tag := range page.Tags {
 				content += "<a href='" + tag.LinkName + ".html'>" + tag.DisplayName + "</a>, "
 			}
 			content += "\n"
 		}
+		if useTags || useSource {
+			content += "<div style='page-break-after: always;'></div>\n"
+		}
 
 		// create source link
-		if page.Source != "" {
+		if useSource {
 			content += "<div style='text-align: right'>\n"
 			content += "<a href='" + page.Source + "'>SOURCE</a>\n"
 			content += "</div>\n"

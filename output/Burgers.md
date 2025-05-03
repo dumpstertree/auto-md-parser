@@ -1,3 +1,4 @@
+# Burgers
 ## Burgers
 ## Servings
 Number Of Servings: 15
@@ -32,9 +33,12 @@ Cost Of Servings: $1.96
 Total Calories: $29.44
 Calories Of Servings: $1.96
 <div style='page-break-after: always;'></div>
----
+<div style='page-break-after: always;'></div>
+<hr/>
+<div style='page-break-after: always;'></div>
 <div style='page-break-after: always;'></div>
 <a href='tag-food.html'>#food</a>, <a href='tag-budgeting.html'>#budgeting</a>, 
+<div style='page-break-after: always;'></div>
 <div style='text-align: right'>
 <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vSAyak9YlStJt0W2QiXNHVF8FODXyzkGh0HTz9XkhPPqGQ7IycIP1MG9gofJCHmb8c_vAcLKiqcYQXQ/pub?output=xlsx'>SOURCE</a>
 </div>

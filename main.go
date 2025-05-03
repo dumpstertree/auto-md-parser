@@ -64,7 +64,6 @@ func main() {
 		time.Sleep(1 * time.Second)
 	}
 }
-
 func Reload() {
 
 	// clear any old data
@@ -93,10 +92,10 @@ func Reload() {
 
 	// iterate over each page so far
 	for i, p := range allPages {
-		allPages[i].Content = p.ApplyInternalLinks(allPages)
+		allPages[i].Content = p.applyInternalLinks(allPages)
 	}
 	for i, p := range allPages {
-		allPages[i].Content = p.ApplyExternalLinks(allPages)
+		allPages[i].Content = p.applyExternalLinks(allPages)
 	}
 
 	// load page summary
@@ -115,7 +114,6 @@ func Reload() {
 	// unload
 	d.Clear()
 }
-
 func arraysEqual(arr1, arr2 []string) bool {
 	if len(arr1) != len(arr2) {
 		return false
@@ -127,7 +125,6 @@ func arraysEqual(arr1, arr2 []string) bool {
 	}
 	return true
 }
-
 func clearCachedImages() {
 
 	for _, i := range find(outputPath, ".png") {
@@ -225,22 +222,7 @@ func parseCompoundCollumnString(input string, sheet string, row int, allPages []
 
 	return lineEnd
 }
-
-type Page struct {
-	DisplayName string
-	LinkName    string
-	Path        string
-	Content     string
-	Source      string
-	Tags        []PageTag
-}
-
-type PageTag struct {
-	LinkName    string
-	DisplayName string
-}
-
-func (p Page) ApplyExternalLinks(pages []Page) string {
+func (p Page) applyExternalLinks(pages []Page) string {
 	content := p.Content
 	for _, w := range strings.Split(content, " ") {
 
@@ -260,20 +242,25 @@ func (p Page) ApplyExternalLinks(pages []Page) string {
 
 	return content
 }
-func (p Page) ApplyInternalLinks(pages []Page) string {
+func (p Page) applyInternalLinks(pages []Page) string {
 
 	content := p.Content
 	for _, c := range pages {
 		if c.DisplayName == p.DisplayName {
 			continue
 		}
-		re := regexp.MustCompile(`(?i)\b` + c.DisplayName + `\b`)
+		re := regexp.MustCompile(`\b` + c.DisplayName + `\b`)
 		content = re.ReplaceAllString(content, "<a href='"+c.LinkName+".html'>"+c.DisplayName+"</a>")
+
+		re = regexp.MustCompile(`/(.*)<` + c.DisplayName + `>/s`)
+		content = re.ReplaceAllString(content, "<a href='"+c.LinkName+".html'>"+c.DisplayName+"</a>")
+
 		// content = strings.ReplaceAll(content, c.DisplayName, "<a href='"+c.LinkName+".html'>"+c.DisplayName+"</a>")
 	}
 	return content
 }
 
+// constructors
 func makePageExplicit(path string, name string, linkName string, content string, source string, tags []string) *Page {
 
 	t := []PageTag{}
@@ -342,6 +329,7 @@ type TextSubsection struct {
 	Italic bool   `json:"italic"`
 }
 
+// text
 func (s TextSubsection) ModifyTextStart(text string) string {
 
 	if s.Bold {
@@ -356,7 +344,6 @@ func (s TextSubsection) ModifyTextStart(text string) string {
 	}
 	return text
 }
-
 func (s TextSubsection) ModifyTextEnds(text string) string {
 
 	if s.Bold {
@@ -370,4 +357,18 @@ func (s TextSubsection) ModifyTextEnds(text string) string {
 
 	}
 	return text
+}
+
+type Page struct {
+	DisplayName string
+	LinkName    string
+	Path        string
+	Content     string
+	Source      string
+	Tags        []PageTag
+}
+
+type PageTag struct {
+	LinkName    string
+	DisplayName string
 }
