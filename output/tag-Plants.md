@@ -1,4 +1,5 @@
-# <span style='color:#FFFFFF80'>Tags/Index/</span><b>#plants</b>
+# <p style='font-size: 15px;'>Tags/Index/</p>
+# <p style='font-size: 40px;'>#plants</p>
 <a href='nursery-tasks.html'>nursery-tasks</a> \
 <a href='transplant-tasks.html'>transplant-tasks</a> \
 <a href='direct-seeding-tasks.html'>direct-seeding-tasks</a> \

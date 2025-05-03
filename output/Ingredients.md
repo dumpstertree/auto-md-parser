@@ -1,4 +1,5 @@
-# <span style='color:#FFFFFF80'>Cooking/</span><b>Ingredients</b>
+# <p style='font-size: 15px;'>Cooking/</p>
+# <p style='font-size: 40px;'>Ingredients</p>
 ## Ingredients
 ## Price
 | Ingredient | Price (oz) |

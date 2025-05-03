@@ -1,4 +1,5 @@
-# <span style='color:#FFFFFF80'>Planting/Notes/</span><b>harvest-tasks</b>
+# <p style='font-size: 15px;'>Planting/Notes/</p>
+# <p style='font-size: 40px;'>harvest-tasks</p>
 ## harvest-tasks
 ## Recorded Notes
 <b><i><font color=green></b></i></font><div style='page-break-after: always;'></div>

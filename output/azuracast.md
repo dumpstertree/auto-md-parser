@@ -1,4 +1,5 @@
-# <span style='color:#FFFFFF80'>Hosted/Services/</span><b>Azuracast</b>
+# <p style='font-size: 15px;'>Hosted/Services/</p>
+# <p style='font-size: 40px;'>Azuracast</p>
 ## Azuracast
 ## Active Services
 | Service | Content | Address |

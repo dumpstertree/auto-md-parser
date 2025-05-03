@@ -1,4 +1,5 @@
-# <span style='color:#FFFFFF80'>Cooking/Recipes/Bulk/</span><b>Burgers</b>
+# <p style='font-size: 15px;'>Cooking/Recipes/Bulk/</p>
+# <p style='font-size: 40px;'>Burgers</p>
 ## Burgers
 ## Servings
 Number Of Servings: 15
