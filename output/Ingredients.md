@@ -23,7 +23,7 @@
 | Tomato - Crushed | $0.06 |
 | Cheese - Cheddar | $0.22 |
 | Tomato - Paste | $0.15 |
-| Buffalo <a href='sauce.html'>Sauce</a> | $0.21 |
+| Buffalo<a href='sauce.html'>Sauce</a>| $0.21 |
 | Blue Cheese - Crumble | $0.50 |
 | Blue Cheese - Dressing | $0.17 |
 | Salsa | $0.13 |
@@ -53,7 +53,7 @@
 | Tomato - Crushed | 0.00 | 0.00 | 0.00 | 0.00 |
 | Cheese - Cheddar | 0.00 | 0.00 | 0.00 | 0.00 |
 | Tomato - Paste | 0.00 | 0.00 | 0.00 | 0.00 |
-| Buffalo <a href='sauce.html'>Sauce</a> | 0.00 | 0.00 | 0.00 | 0.00 |
+| Buffalo<a href='sauce.html'>Sauce</a>| 0.00 | 0.00 | 0.00 | 0.00 |
 | Blue Cheese - Crumble | 0.00 | 0.00 | 0.00 | 0.00 |
 | Blue Cheese - Dressing | 0.00 | 0.00 | 0.00 | 0.00 |
 | Salsa | 0.00 | 0.00 | 0.00 | 0.00 |
