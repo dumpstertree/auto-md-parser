@@ -249,13 +249,9 @@ func (p Page) applyInternalLinks(pages []Page) string {
 		if c.DisplayName == p.DisplayName {
 			continue
 		}
-		re := regexp.MustCompile(`\b` + c.DisplayName + `\b`)
-		content = re.ReplaceAllString(content, "<a href='"+c.LinkName+".html'>"+c.DisplayName+"</a>")
 
-		re = regexp.MustCompile(`/(.*)<` + c.DisplayName + `>/s`)
+		re := regexp.MustCompile(`(?i)` + c.DisplayName + `\b`)
 		content = re.ReplaceAllString(content, "<a href='"+c.LinkName+".html'>"+c.DisplayName+"</a>")
-
-		// content = strings.ReplaceAll(content, c.DisplayName, "<a href='"+c.LinkName+".html'>"+c.DisplayName+"</a>")
 	}
 	return content
 }

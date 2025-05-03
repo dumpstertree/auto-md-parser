@@ -47,7 +47,7 @@ func buildPageTags(allPages []Page) []Page {
 	for tag, _ := range allTags {
 
 		//allTagsContent += "<a href='" + tag.LinkName + ".html'>" + tag.DisplayName + "</a>"
-		allTagsContent += tag.DisplayName
+		allTagsContent += " " + tag.DisplayName
 		if x != len(allTags)-1 {
 			allTagsContent += " \\"
 		}

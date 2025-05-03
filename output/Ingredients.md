@@ -1,6 +1,6 @@
 # <p style='font-size: 15px;'>Cooking/</p>
 # <p style='font-size: 40px;'>Ingredients</p>
-## Ingredients
+<br>## Ingredients
 ## Price
 | Ingredient | Price (oz) |
 | ------------ | ------------ |
