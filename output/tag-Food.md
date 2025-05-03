@@ -1,4 +1,4 @@
-# #food
+# <span style='color:#FFFFFF80'>Tags/Index/</span><b>#food</b>
 <a href='sauce.html'>Sauce</a> \
 <a href='meatballs.html'>Meatballs</a> \
 <a href='taquitos.html'>Taquitos</a> \

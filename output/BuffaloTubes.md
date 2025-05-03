@@ -1,4 +1,4 @@
-# BuffaloTubes
+# <span style='color:#FFFFFF80'>Cooking/Recipes/Bulk/</span><b>BuffaloTubes</b>
 ## BuffaloTubes
 ## Servings
 Number Of Servings: 13

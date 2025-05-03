@@ -1,4 +1,4 @@
-# Taquitos
+# <span style='color:#FFFFFF80'>Cooking/Recipes/Bulk/</span><b>Taquitos</b>
 ## Taquitos
 ## Servings
 Number Of Servings: 15

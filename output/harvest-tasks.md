@@ -1,4 +1,4 @@
-# harvest-tasks
+# <span style='color:#FFFFFF80'>Planting/Notes/</span><b>harvest-tasks</b>
 ## harvest-tasks
 ## Recorded Notes
 <b><i><font color=green></b></i></font><div style='page-break-after: always;'></div>

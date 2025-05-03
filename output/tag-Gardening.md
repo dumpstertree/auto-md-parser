@@ -1,4 +1,4 @@
-# #gardening
+# <span style='color:#FFFFFF80'>Tags/Index/</span><b>#gardening</b>
 <a href='nursery-tasks.html'>nursery-tasks</a> \
 <a href='transplant-tasks.html'>transplant-tasks</a> \
 <a href='direct-seeding-tasks.html'>direct-seeding-tasks</a> \

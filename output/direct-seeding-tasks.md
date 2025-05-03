@@ -1,4 +1,4 @@
-# direct-seeding-tasks
+# <span style='color:#FFFFFF80'>Planting/Notes/</span><b>direct-seeding-tasks</b>
 ## direct-seeding-tasks
 ## Recorded Notes
 <b><i><font color=green></b></i></font><div style='page-break-after: always;'></div>

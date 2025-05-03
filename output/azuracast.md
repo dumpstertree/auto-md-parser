@@ -1,4 +1,4 @@
-# Azuracast
+# <span style='color:#FFFFFF80'>Hosted/Services/</span><b>Azuracast</b>
 ## Azuracast
 ## Active Services
 | Service | Content | Address |

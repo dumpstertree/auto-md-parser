@@ -1,4 +1,4 @@
-# Sauce
+# <span style='color:#FFFFFF80'>Cooking/Recipes/Bulk/</span><b>Sauce</b>
 ## Sauce
 ## Servings
 Number Of Servings: 6

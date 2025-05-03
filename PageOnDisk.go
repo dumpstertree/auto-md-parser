@@ -15,7 +15,7 @@ func WriteToDisk(path string, page Page, useFooter bool) *PageOnDisk {
 	content := ""
 
 	if useFooter {
-		content += "# " + page.DisplayName + "\n"
+		content += "# " + "<span style='color:#FFFFFF80'>" + page.Path + "</span>" + "<b>" + page.DisplayName + "</b>" + "\n"
 	}
 
 	content += page.Content

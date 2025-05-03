@@ -1,4 +1,4 @@
-# Burgers
+# <span style='color:#FFFFFF80'>Cooking/Recipes/Bulk/</span><b>Burgers</b>
 ## Burgers
 ## Servings
 Number Of Servings: 15

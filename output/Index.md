@@ -1,6 +1,6 @@
-# Index
-#food \
+# <span style='color:#FFFFFF80'>Tags/</span><b>Index</b>
 #budgeting \
 #plants \
 #gardening \
-#off-grid
+#off-grid \
+#food

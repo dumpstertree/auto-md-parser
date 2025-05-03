@@ -1,4 +1,4 @@
-# Ingredients
+# <span style='color:#FFFFFF80'>Cooking/</span><b>Ingredients</b>
 ## Ingredients
 ## Price
 | Ingredient | Price (oz) |
