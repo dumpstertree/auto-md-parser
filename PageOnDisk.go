@@ -18,7 +18,7 @@ func WriteToDisk(path string, page Page, useFooter bool) *PageOnDisk {
 	if useFooter {
 		content += "# " + "<p style='font-size: 15px;'>" + page.Path + "</p>" + "\n"
 		content += "# " + "<p style='font-size: 40px;'>" + page.DisplayName + "</p>" + "\n"
-		content += "<br>"
+		content += "\n"
 	}
 
 	content += page.Content
@@ -32,9 +32,12 @@ func WriteToDisk(path string, page Page, useFooter bool) *PageOnDisk {
 		if useTags || useSource {
 			content += "<div style='page-break-after: always;'></div>\n"
 			content += "<div style='page-break-after: always;'></div>\n"
+			content += "\n"
 			content += "<hr/>\n"
+			content += "\n"
 			content += "<div style='page-break-after: always;'></div>\n"
 			content += "<div style='page-break-after: always;'></div>\n"
+			content += "\n"
 		}
 
 		// only add tags if exist
@@ -46,14 +49,13 @@ func WriteToDisk(path string, page Page, useFooter bool) *PageOnDisk {
 
 			for i, tag := range sortedTags {
 				content += "<a href='" + tag.LinkName + ".html'>" + tag.DisplayName + "</a>"
-				if i < len(page.Tags)-2 {
+				if i < len(page.Tags)-1 {
 					content += ", "
 				}
 			}
 			content += "\n"
-		}
-		if useTags || useSource {
 			content += "<div style='page-break-after: always;'></div>\n"
+			content += "\n"
 		}
 
 		// create source link

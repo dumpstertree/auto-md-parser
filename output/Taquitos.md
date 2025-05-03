@@ -1,8 +1,12 @@
 # <p style='font-size: 15px;'>Cooking/Recipes/Bulk/</p>
 # <p style='font-size: 40px;'>Taquitos</p>
-<br>## Servings
+
+## Servings
+
 Number Of Servings: 15
+
 ## Cost Breakdown
+
 | Ingredient | Price (oz) | Num Oz | Cost |
 | ------------ | ------------ | ------------ | ------------ |
 | Chicken  (Thighs) | $0.09 | 144 | $12.96 |
@@ -14,8 +18,11 @@ Number Of Servings: 15
 | Fajita (Small) | $0.18 | 35 | $6.30 |
 
 Total Cost: $29.04
+
 Cost Of Servings: $1.94
+
 ## Nutrition Breakdown
+
 | Ingredient | Calories (oz) | Protien (oz) | Carbs (oz) | Fat (oz) |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
 | Chicken  (Thighs) | $0.09 | 144 | $12.96 | $12.96 |
@@ -27,14 +34,20 @@ Cost Of Servings: $1.94
 | Fajita (Small) | $0.18 | 35 | $6.30 | $6.30 |
 
 Total Calories: $29.04
+
 Calories Of Servings: $1.94
+
 <div style='page-break-after: always;'></div>
 <div style='page-break-after: always;'></div>
+
 <hr/>
+
 <div style='page-break-after: always;'></div>
 <div style='page-break-after: always;'></div>
-<a href='tag-budgeting.html'>#budgeting</a><a href='tag-food.html'>#food</a>
+
+<a href='tag-budgeting.html'>#budgeting</a>, <a href='tag-food.html'>#food</a>
 <div style='page-break-after: always;'></div>
+
 <div style='text-align: right'>
 <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vSAyak9YlStJt0W2QiXNHVF8FODXyzkGh0HTz9XkhPPqGQ7IycIP1MG9gofJCHmb8c_vAcLKiqcYQXQ/pub?output=xlsx'>SOURCE</a>
 </div>

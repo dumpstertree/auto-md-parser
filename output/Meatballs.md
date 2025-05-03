@@ -1,8 +1,12 @@
 # <p style='font-size: 15px;'>Cooking/Recipes/Bulk/</p>
 # <p style='font-size: 40px;'>Meatballs</p>
-<br>## Servings
+
+## Servings
+
 Number Of Servings: 
+
 ## Cost Breakdown
+
 | Ingredient | Price (oz) | Num Oz | Cost |
 | ------------ | ------------ | ------------ | ------------ |
 |  |  |  | 4608 |
@@ -15,8 +19,11 @@ Number Of Servings:
 | Egg | 2 | $0.00 | $0.00 |
 
 Total Cost: 15
+
 Cost Of Servings: $21.96
+
 ## Nutrition Breakdown
+
 | Ingredient | Calories (oz) | Protien (oz) | Carbs (oz) | Fat (oz) |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
 |  |  |  | 4608 | 4608 |
@@ -29,14 +36,20 @@ Cost Of Servings: $21.96
 | Egg | 2 | $0.00 | $0.00 | $0.00 |
 
 Total Calories: 15
+
 Calories Of Servings: $21.96
+
 <div style='page-break-after: always;'></div>
 <div style='page-break-after: always;'></div>
+
 <hr/>
+
 <div style='page-break-after: always;'></div>
 <div style='page-break-after: always;'></div>
-<a href='tag-budgeting.html'>#budgeting</a><a href='tag-food.html'>#food</a>
+
+<a href='tag-budgeting.html'>#budgeting</a>, <a href='tag-food.html'>#food</a>
 <div style='page-break-after: always;'></div>
+
 <div style='text-align: right'>
 <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vSAyak9YlStJt0W2QiXNHVF8FODXyzkGh0HTz9XkhPPqGQ7IycIP1MG9gofJCHmb8c_vAcLKiqcYQXQ/pub?output=xlsx'>SOURCE</a>
 </div>

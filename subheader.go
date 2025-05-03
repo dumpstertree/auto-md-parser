@@ -17,5 +17,6 @@ func (h Subheader) Write(input string, sheet string, allPages []string, file *ex
 	input = h.ModifyTextStart(input)
 	input += PREFIX_SUBHEADER + h.Content + SUFFIX_SUBHEADER
 	input = h.ModifyTextEnds(input)
+	input += "\n"
 	return input
 }

@@ -41,6 +41,7 @@ func (re Paragraph) Write(input string, sheet string, allPages []string, file *e
 		input += PREFIX_PARAGRAPH + parseCompoundCollumnString(re.Content, sheet, i, allPages, file) + SUFFIX_PARAGRAPH
 	}
 	input = re.ModifyTextEnds(input)
+	input += "\n"
 
 	// return
 	return input

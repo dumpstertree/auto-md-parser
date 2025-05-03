@@ -92,10 +92,10 @@ func Reload() {
 
 	// iterate over each page so far
 	for i, p := range allPages {
-		allPages[i].Content = p.applyInternalLinks(allPages)
+		allPages[i].Content = p.applyExternalLinks(allPages)
 	}
 	for i, p := range allPages {
-		allPages[i].Content = p.applyExternalLinks(allPages)
+		allPages[i].Content = p.applyInternalLinks(allPages)
 	}
 
 	// load page summary
