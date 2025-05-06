@@ -15,7 +15,7 @@ type Code struct {
 	BaseSubsection
 }
 
-func (c Code) Write(input string, sheet string, allPages []string, file *excelize.File) string {
+func (c Code) Write(page Page, allPages []Page, sheet string, file *excelize.File) []Page {
 
 	// failed to get max rows
 	rows, err := file.GetRows(sheet)
@@ -37,14 +37,14 @@ func (c Code) Write(input string, sheet string, allPages []string, file *exceliz
 
 	for i := min; i <= max; i++ {
 		// iterate over each entry adding it to the quote
-		input += PREFIX_CODE + parseCompoundCollumnString(c.Content, sheet, i, allPages, file) + SUFFIX_CODE
+		page.Content += PREFIX_CODE + parseCompoundCollumnString(c.Content, sheet, i, file) + SUFFIX_CODE
 
 		// if break add a new line
 		if c.Break {
-			input += "\n"
+			page.Content += "\n"
 		}
 	}
 
 	// return
-	return input
+	return allPages
 }

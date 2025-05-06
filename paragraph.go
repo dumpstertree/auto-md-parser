@@ -15,7 +15,7 @@ type Paragraph struct {
 	TextSubsection
 }
 
-func (re Paragraph) Write(input string, sheet string, allPages []string, file *excelize.File) string {
+func (re Paragraph) Write(page Page, allPages []Page, sheet string, file *excelize.File) []Page {
 
 	// failed to get max rows
 	rows, err := file.GetRows(sheet)
@@ -36,13 +36,13 @@ func (re Paragraph) Write(input string, sheet string, allPages []string, file *e
 	}
 
 	//
-	input = re.ModifyTextStart(input)
+	page.Content = re.ModifyTextStart(page.Content)
 	for i := min; i <= max; i++ {
-		input += PREFIX_PARAGRAPH + parseCompoundCollumnString(re.Content, sheet, i, allPages, file) + SUFFIX_PARAGRAPH
+		page.Content += PREFIX_PARAGRAPH + parseCompoundCollumnString(re.Content, sheet, i, file) + SUFFIX_PARAGRAPH
 	}
-	input = re.ModifyTextEnds(input)
-	input += "\n"
+	page.Content = re.ModifyTextEnds(page.Content)
+	page.Content += "\n"
 
 	// return
-	return input
+	return allPages
 }

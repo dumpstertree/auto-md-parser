@@ -179,7 +179,7 @@ func find(root, ext string) []string {
 }
 
 // parse
-func parseCompoundCollumnString(input string, sheet string, row int, allPages []string, file *excelize.File) string {
+func parseCompoundCollumnString(input string, sheet string, row int, file *excelize.File) string {
 	var lineEnd = ""
 	strArr := []rune(input)
 	last := ' '
@@ -250,7 +250,7 @@ func (p Page) applyInternalLinks(pages []Page) string {
 			continue
 		}
 
-		re := regexp.MustCompile(`(?i)[ ]` + c.DisplayName + `([.,!? ])`)
+		re := regexp.MustCompile(`([^\n]|[^ ])` + c.DisplayName + `([^\n]|[^ ]|[^.]|[^?]|[^!][^,][^;])`)
 		content = re.ReplaceAllString(content, "<a href='"+c.LinkName+".html'>"+c.DisplayName+"</a>")
 
 	}
@@ -305,7 +305,7 @@ func makeTag(name string) *PageTag {
 
 // data
 type ISubsection interface {
-	Write(input string, sheet string, allPages []string, file *excelize.File) string
+	Write(page Page, allPages []Page, sheet string, file *excelize.File) []Page
 }
 type OrderedLayout struct {
 	Title            string

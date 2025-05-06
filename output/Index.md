@@ -5,4 +5,4 @@
 <a href='tag-food.html'>#food</a>\
 <a href='tag-gardening.html'>#gardening</a>\
 <a href='tag-off-grid.html'>#off-grid</a>\
- #plants
+<a href='tag-plants.html'>#plants</a>

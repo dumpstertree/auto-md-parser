@@ -44,6 +44,8 @@ func (f *OrderedLayout) UnmarshalJSON(b []byte) error {
 			i = &Quote{}
 		case "code":
 			i = &Code{}
+		case "subpage":
+			i = &Subpage{}
 		default:
 			return errors.New("unknown type")
 		}

@@ -13,10 +13,10 @@ type Subheader struct {
 	TextSubsection
 }
 
-func (h Subheader) Write(input string, sheet string, allPages []string, file *excelize.File) string {
-	input = h.ModifyTextStart(input)
-	input += PREFIX_SUBHEADER + h.Content + SUFFIX_SUBHEADER
-	input = h.ModifyTextEnds(input)
-	input += "\n"
-	return input
+func (h Subheader) Write(page Page, allPages []Page, sheet string, file *excelize.File) []Page {
+	page.Content = h.ModifyTextStart(page.Content)
+	page.Content += PREFIX_SUBHEADER + h.Content + SUFFIX_SUBHEADER
+	page.Content = h.ModifyTextEnds(page.Content)
+	page.Content += "\n"
+	return allPages
 }

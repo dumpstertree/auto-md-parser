@@ -1,17 +1,6 @@
 # <p style='font-size: 15px;'>Planting/Notes/</p>
 # <p style='font-size: 40px;'>pflanzarbeiten</p>
 
-## Recorded Notes
-
-<b><i><font color=green> : Heirloom tomatoes (1) - San Marzano II
- : Cherry tomatoes (5) - Sakura
- : Cherry tomatoes (4) - Sakura
- : Cherry tomatoes (3) - Sunpeach
- : Cherry tomatoes (2) - Black Cherry
- : Cherry tomatoes (1) - Sakura
- : Heirloom tomatoes (2) - Amish Paste
- : Cherry tomatoes (6) - Sakura
-</b></i></font>
 <div style='page-break-after: always;'></div>
 <div style='page-break-after: always;'></div>
 

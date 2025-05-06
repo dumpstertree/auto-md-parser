@@ -31,6 +31,25 @@
             "content"   : "Nutrition"
         },
         {
+            "type"      : "subpage",
+            "title"     : "@A",
+            "rowmin"    : 2,
+            "content"   : [
+                {
+                    "type"      : "subheader",
+                    "content"   : "Entry"
+                },
+                {
+                    "header": "Ingredient",
+                    "content": "@A"
+                },
+                {
+                    "type"      : "subheader",
+                    "content"   : "Exit"
+                }
+            ]
+        },
+        {
             "type"      : "table",
             "rowmin"    : 2,
             "content"   : [

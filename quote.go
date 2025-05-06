@@ -18,7 +18,7 @@ type Quote struct {
 	TextSubsection
 }
 
-func (q Quote) Write(input string, sheet string, allPages []string, file *excelize.File) string {
+func (q Quote) Write(page Page, allPages []Page, sheet string, file *excelize.File) []Page {
 
 	// failed to get max rows
 	rows, err := file.GetRows(sheet)
@@ -39,20 +39,20 @@ func (q Quote) Write(input string, sheet string, allPages []string, file *exceli
 	}
 
 	// modify base
-	input = q.ModifyTextStart(input)
+	page.Content = q.ModifyTextStart(page.Content)
 
 	for i := min; i <= max; i++ {
 		// iterate over each entry adding it to the quote
-		input += PREFIX_QUOTE + parseCompoundCollumnString(q.Content, sheet, i, allPages, file) + SUFFIX_QUOTE
+		page.Content += PREFIX_QUOTE + parseCompoundCollumnString(q.Content, sheet, i, file) + SUFFIX_QUOTE
 
 		// if break add a new line
 		if q.Break {
-			input += "\n"
+			page.Content += "\n"
 		}
 	}
 	// modify base
-	input = q.ModifyTextEnds(input)
+	page.Content = q.ModifyTextEnds(page.Content)
 
 	// return
-	return input
+	return allPages
 }

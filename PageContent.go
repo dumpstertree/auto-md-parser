@@ -21,12 +21,6 @@ func buildPageContent(layoutToFile map[*OrderedLayout]*excelize.File, allPages m
 	// generate all pages
 	pages := []Page{}
 
-	// flatten the pages for use when writing
-	allPagesFlat := []string{}
-	for _, y := range allPages {
-		allPagesFlat = append(allPagesFlat, y...)
-	}
-
 	// add pages for each path
 	for layout, file := range layoutToFile {
 
@@ -36,24 +30,22 @@ func buildPageContent(layoutToFile map[*OrderedLayout]*excelize.File, allPages m
 		//iterate on the required pages
 		for _, sheet := range reqSheets {
 
-			// page content
-			var content = ""
+			// make the current page
+			p := *makePage(
+				layout.Path+"/",
+				sheet,
+				"",
+				layout.URL,
+				layout.Tags,
+			)
 
 			// add all subsections
 			for _, subsection := range layout.LayoutSubsection {
-				content = subsection.Write(content, sheet, allPagesFlat, file)
+				pages = subsection.Write(p, pages, sheet, file)
 			}
 
 			// add page
-			pages = append(pages,
-				*makePage(
-					layout.Path+"/",
-					sheet,
-					content,
-					layout.URL,
-					layout.Tags,
-				),
-			)
+			pages = append(pages, p)
 		}
 
 	}

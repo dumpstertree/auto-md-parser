@@ -13,10 +13,10 @@ type Header struct {
 	TextSubsection
 }
 
-func (h Header) Write(input string, sheet string, allPages []string, file *excelize.File) string {
+func (h Header) Write(page Page, allPages []Page, sheet string, file *excelize.File) []Page {
 	// modify base
-	input = h.ModifyTextStart(input)
-	input += PREFIX_HEADER + h.Content + SUFFIX_HEADER
-	input = h.ModifyTextEnds(input)
-	return input
+	page.Content = h.ModifyTextStart(page.Content)
+	page.Content += PREFIX_HEADER + h.Content + SUFFIX_HEADER
+	page.Content = h.ModifyTextEnds(page.Content)
+	return allPages
 }

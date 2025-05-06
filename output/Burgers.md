@@ -1,46 +1,6 @@
 # <p style='font-size: 15px;'>Cooking/Recipes/Bulk/</p>
 # <p style='font-size: 40px;'>Burgers</p>
 
-## Servings
-
-Number Of Servings: 15
-
-## Cost Breakdown
-
-| Ingredient | Price (oz) | Num Oz | Cost |
-| ------------ | ------------ | ------------ | ------------ |
-| Beef - Ground | $0.27 | 64 | $17.28 |
-| Onion - Yellow | $0.05 | 12 | $0.60 |
-| Ketchup | $0.10 | 16 | $1.60 |
-| Mustard | $0.27 | 12 | $3.24 |
-| Pickles - Whole | $0.11 | 16 | $1.76 |
-| Cheese - American | $0.31 | 16 | $4.96 |
-| Butter | $0.24 |  | $0.00 |
-| Flour | $0.04 |  | $0.00 |
-| Egg | $0.00 | 1 | $0.00 |
-
-Total Cost: $29.44
-
-Cost Of Servings: $1.96
-
-## Nutrition Breakdown
-
-| Ingredient | Calories (oz) | Protien (oz) | Carbs (oz) | Fat (oz) |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| Beef - Ground | $0.27 | 64 | $17.28 | $17.28 |
-| Onion - Yellow | $0.05 | 12 | $0.60 | $0.60 |
-| Ketchup | $0.10 | 16 | $1.60 | $1.60 |
-| Mustard | $0.27 | 12 | $3.24 | $3.24 |
-| Pickles - Whole | $0.11 | 16 | $1.76 | $1.76 |
-| Cheese - American | $0.31 | 16 | $4.96 | $4.96 |
-| Butter | $0.24 |  | $0.00 | $0.00 |
-| Flour | $0.04 |  | $0.00 | $0.00 |
-| Egg | $0.00 | 1 | $0.00 | $0.00 |
-
-Total Calories: $29.44
-
-Calories Of Servings: $1.96
-
 <div style='page-break-after: always;'></div>
 <div style='page-break-after: always;'></div>
 

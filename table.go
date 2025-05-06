@@ -20,7 +20,7 @@ type TableCollumn struct {
 	Content string `json:"content"`
 }
 
-func (re Table) Write(input string, sheet string, allPages []string, file *excelize.File) string {
+func (re Table) Write(page Page, allPages []Page, sheet string, file *excelize.File) []Page {
 
 	// failed to get max rows
 	rows, err := file.GetRows(sheet)
@@ -42,7 +42,7 @@ func (re Table) Write(input string, sheet string, allPages []string, file *excel
 
 	// create header and data
 	headers := getHeaders(re.Content)
-	data := getData(re.Content, sheet, allPages, min, max, file)
+	data := getData(re.Content, sheet, min, max, file)
 
 	// get table from external package
 	table, err := gmdtable.Convert(headers, data)
@@ -51,7 +51,8 @@ func (re Table) Write(input string, sheet string, allPages []string, file *excel
 	}
 
 	// return
-	return input + PREFIX_TABLE + table + SUFFIX_TABLE
+	page.Content += PREFIX_TABLE + table + SUFFIX_TABLE
+	return allPages
 }
 
 func getHeaders(content []TableCollumn) []string {
@@ -61,7 +62,7 @@ func getHeaders(content []TableCollumn) []string {
 	}
 	return headers
 }
-func getData(content []TableCollumn, sheet string, allPages []string, min int, max int, file *excelize.File) []map[string]interface{} {
+func getData(content []TableCollumn, sheet string, min int, max int, file *excelize.File) []map[string]interface{} {
 
 	// add each for data in collumn
 	data := []map[string]interface{}{}
@@ -72,7 +73,7 @@ func getData(content []TableCollumn, sheet string, allPages []string, min int, m
 		for _, x := range content {
 
 			// assign after parsing string
-			m[x.Header] = parseCompoundCollumnString(x.Content, sheet, i, allPages, file)
+			m[x.Header] = parseCompoundCollumnString(x.Content, sheet, i, file)
 		}
 		// add map to list
 		data = append(data, m)

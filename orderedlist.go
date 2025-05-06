@@ -17,7 +17,7 @@ type OrderedList struct {
 	TextSubsection
 }
 
-func (l OrderedList) Write(input string, sheet string, allPages []string, file *excelize.File) string {
+func (l OrderedList) Write(page Page, allPages []Page, sheet string, file *excelize.File) []Page {
 
 	// failed to get max rows
 	rows, err := file.GetRows(sheet)
@@ -38,16 +38,16 @@ func (l OrderedList) Write(input string, sheet string, allPages []string, file *
 	}
 
 	// begin list
-	input = l.ModifyTextStart(input)
-	input += PREFIX_LIST_ORDERED
+	page.Content = l.ModifyTextStart(page.Content)
+	page.Content += PREFIX_LIST_ORDERED
 	for i := min; i <= max; i++ {
 		// iterate over each entry adding it to the list
-		input += PREFIX_LIST_ORDERED_ENTRY + parseCompoundCollumnString(l.Content, sheet, i, allPages, file) + SUFFIX_LIST_ORDERED_ENTRY
+		page.Content += PREFIX_LIST_ORDERED_ENTRY + parseCompoundCollumnString(l.Content, sheet, i, file) + SUFFIX_LIST_ORDERED_ENTRY
 	}
 	// end list
-	input += SUFFIX_LIST_ORDERED
-	input = l.ModifyTextEnds(input)
+	page.Content += SUFFIX_LIST_ORDERED
+	page.Content = l.ModifyTextEnds(page.Content)
 
 	// return
-	return input
+	return allPages
 }

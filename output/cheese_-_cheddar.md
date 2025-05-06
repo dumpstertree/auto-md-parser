@@ -1,5 +1,5 @@
-# <p style='font-size: 15px;'>Cooking/Recipes/Bulk/</p>
-# <p style='font-size: 40px;'>Sauce</p>
+# <p style='font-size: 15px;'>Cooking/Ingredients/</p>
+# <p style='font-size: 40px;'>Cheese - Cheddar</p>
 
 <div style='page-break-after: always;'></div>
 <div style='page-break-after: always;'></div>
@@ -7,9 +7,6 @@
 <hr/>
 
 <div style='page-break-after: always;'></div>
-<div style='page-break-after: always;'></div>
-
-<a href='tag-budgeting.html'>#budgeting</a>, <a href='tag-food.html'>#food</a>
 <div style='page-break-after: always;'></div>
 
 <div style='text-align: right'>
