@@ -47,7 +47,7 @@ func (l Subpage) Write(page *Page, allPages []Page, sheet string, file *excelize
 		title := parseCompoundCollumnString(l.Title, sheet, i, file)
 
 		// add link from this page to next
-		page.Content += title + "\n"
+		page.Content += title + "\\\n"
 
 		// make subpage
 		subpage := *makePage(

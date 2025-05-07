@@ -283,8 +283,14 @@ func makePage(path string, name string, content string, source string, tags []st
 		t = append(t, *makeTag(i))
 	}
 
-	linkName := strings.Replace(name, " ", "_", -1)
+	linkName := name
+	linkName = strings.Replace(name, " ", "_", -1)
+	linkName = strings.Replace(linkName, "(", "[", -1)
+	linkName = strings.Replace(linkName, ")", "]", -1)
 	linkName = strings.ToLower(linkName)
+
+	name = strings.Replace(name, "(", "[", -1)
+	name = strings.Replace(name, ")", "]", -1)
 
 	return &Page{
 		DisplayName: name,
