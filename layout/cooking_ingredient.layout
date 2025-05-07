@@ -34,14 +34,14 @@
             "type"      : "subpage",
             "title"     : "@A",
             "rowmin"    : 2,
-            "content"   : [
+            "sections"   : [
                 {
                     "type"      : "subheader",
                     "content"   : "Entry"
                 },
                 {
-                    "header": "Ingredient",
-                    "content": "@A"
+                    "type"      : "paragraph",
+                    "content"   : "@B"
                 },
                 {
                     "type"      : "subheader",

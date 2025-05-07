@@ -1,6 +1,12 @@
 # <p style='font-size: 15px;'>Cooking/Ingredients/</p>
 # <p style='font-size: 40px;'>Sour Cream</p>
 
+## Entry
+
+$0.12
+
+## Exit
+
 <div style='page-break-after: always;'></div>
 <div style='page-break-after: always;'></div>
 

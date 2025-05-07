@@ -20,3 +20,11 @@ func (h Subheader) Write(page *Page, allPages []Page, sheet string, file *exceli
 	page.Content += "\n"
 	return allPages
 }
+
+func (h Subheader) WriteSubsection(page *Page, allPages []Page, sheet string, file *excelize.File, row int) []Page {
+	page.Content = h.ModifyTextStart(page.Content)
+	page.Content += PREFIX_SUBHEADER + h.Content + SUFFIX_SUBHEADER
+	page.Content = h.ModifyTextEnds(page.Content)
+	page.Content += "\n"
+	return allPages
+}

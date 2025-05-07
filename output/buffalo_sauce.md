@@ -1,6 +1,12 @@
 # <p style='font-size: 15px;'>Cooking/Ingredients/</p>
 # <p style='font-size: 40px;'>Buffalo Sauce</p>
 
+## Entry
+
+$0.21
+
+## Exit
+
 <div style='page-break-after: always;'></div>
 <div style='page-break-after: always;'></div>
 

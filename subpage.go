@@ -15,8 +15,8 @@ type Subpage struct {
 	RowMin           int               `json:"rowmin"`
 	RowMax           int               `json:"rowmax"`
 	Title            string            `json:"title"`
-	LayoutSubsection []ISubsection     `json:"-"`
-	Sections         []json.RawMessage `json:"content"`
+	LayoutSubsection []ISubSubsection  `json:"-"`
+	Sections         []json.RawMessage `json:"sections"`
 	BaseSubsection
 	TextSubsection
 }
@@ -61,7 +61,7 @@ func (l Subpage) Write(page *Page, allPages []Page, sheet string, file *excelize
 
 		// write subpages
 		for _, x := range l.LayoutSubsection {
-			x.Write(&subpage, allPages, sheet, file)
+			x.WriteSubsection(&subpage, allPages, sheet, file, i)
 		}
 
 		// add new page

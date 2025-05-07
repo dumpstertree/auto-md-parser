@@ -1,6 +1,12 @@
 # <p style='font-size: 15px;'>Cooking/Ingredients/</p>
 # <p style='font-size: 40px;'>Onion - Yellow</p>
 
+## Entry
+
+$0.05
+
+## Exit
+
 <div style='page-break-after: always;'></div>
 <div style='page-break-after: always;'></div>
 

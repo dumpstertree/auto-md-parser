@@ -20,3 +20,11 @@ func (h Header) Write(page *Page, allPages []Page, sheet string, file *excelize.
 	page.Content = h.ModifyTextEnds(page.Content)
 	return allPages
 }
+
+func (h Header) WriteSubsection(page *Page, allPages []Page, sheet string, file *excelize.File, row int) []Page {
+	// modify base
+	page.Content = h.ModifyTextStart(page.Content)
+	page.Content += PREFIX_HEADER + h.Content + SUFFIX_HEADER
+	page.Content = h.ModifyTextEnds(page.Content)
+	return allPages
+}

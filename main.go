@@ -283,7 +283,6 @@ func (p Page) applyInternalLinks(pages []Page) string {
 				entryIsValid := true
 				exitIsValid := true
 				if min > 0 {
-					fmt.Println(page.DisplayName + " entry : " + string(p.Content[min-1]))
 					for _, v := range validEntry {
 						entryIsValid = p.Content[min-1] == byte(v)
 						if entryIsValid {
@@ -292,7 +291,6 @@ func (p Page) applyInternalLinks(pages []Page) string {
 					}
 				}
 				if max < len(p.Content)-1 {
-					fmt.Println(page.DisplayName + " exit : " + string(p.Content[max]))
 					for _, v := range validExit {
 						exitIsValid = p.Content[max] == byte(v)
 						if exitIsValid {
@@ -304,7 +302,6 @@ func (p Page) applyInternalLinks(pages []Page) string {
 				if entryIsValid && exitIsValid {
 					content += "<a href='" + page.LinkName + ".html'>" + page.DisplayName + "</a>"
 					i = max
-					fmt.Println("found match! " + page.DisplayName)
 					found = true
 					break
 				}
@@ -373,6 +370,9 @@ func makeTag(name string) *PageTag {
 // data
 type ISubsection interface {
 	Write(page *Page, allPages []Page, sheet string, file *excelize.File) []Page
+}
+type ISubSubsection interface {
+	WriteSubsection(page *Page, allPages []Page, sheet string, file *excelize.File, row int) []Page
 }
 type OrderedLayout struct {
 	Title            string

@@ -1,6 +1,12 @@
 # <p style='font-size: 15px;'>Cooking/Ingredients/</p>
 # <p style='font-size: 40px;'>Tomato - Paste</p>
 
+## Entry
+
+$0.15
+
+## Exit
+
 <div style='page-break-after: always;'></div>
 <div style='page-break-after: always;'></div>
 
