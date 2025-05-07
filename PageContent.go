@@ -31,7 +31,7 @@ func buildPageContent(layoutToFile map[*OrderedLayout]*excelize.File, allPages m
 		for _, sheet := range reqSheets {
 
 			// make the current page
-			p := *makePage(
+			curPage := *makePage(
 				layout.Path+"/",
 				sheet,
 				"",
@@ -41,11 +41,11 @@ func buildPageContent(layoutToFile map[*OrderedLayout]*excelize.File, allPages m
 
 			// add all subsections
 			for _, subsection := range layout.LayoutSubsection {
-				pages = subsection.Write(p, pages, sheet, file)
+				pages = subsection.Write(&curPage, pages, sheet, file)
 			}
 
 			// add page
-			pages = append(pages, p)
+			pages = append(pages, curPage)
 		}
 
 	}

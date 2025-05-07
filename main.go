@@ -305,7 +305,7 @@ func makeTag(name string) *PageTag {
 
 // data
 type ISubsection interface {
-	Write(page Page, allPages []Page, sheet string, file *excelize.File) []Page
+	Write(page *Page, allPages []Page, sheet string, file *excelize.File) []Page
 }
 type OrderedLayout struct {
 	Title            string

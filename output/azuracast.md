@@ -1,6 +1,14 @@
 # <p style='font-size: 15px;'>Hosted/Services/</p>
 # <p style='font-size: 40px;'>Azuracast</p>
 
+## Active Services
+
+| Service | Content | Address |
+| ------------ | ------------ | ------------ |
+| Daydreaming | <a href=https://radio.dumpstertree.com/public/daydreaming>https://radio.dumpstertree.com/public/daydreaming</a> |  |
+| Echo-Chamber | <a href=https://radio.dumpstertree.com/public/echo_chamber>https://radio.dumpstertree.com/public/echo_chamber</a> |  |
+| Nightwave | <a href=https://radio.dumpstertree.com/public/nightwave>https://radio.dumpstertree.com/public/nightwave</a> |  |
+
 <div style='page-break-after: always;'></div>
 <div style='page-break-after: always;'></div>
 

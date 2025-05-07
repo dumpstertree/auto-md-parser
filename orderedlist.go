@@ -17,7 +17,7 @@ type OrderedList struct {
 	TextSubsection
 }
 
-func (l OrderedList) Write(page Page, allPages []Page, sheet string, file *excelize.File) []Page {
+func (l OrderedList) Write(page *Page, allPages []Page, sheet string, file *excelize.File) []Page {
 
 	// failed to get max rows
 	rows, err := file.GetRows(sheet)

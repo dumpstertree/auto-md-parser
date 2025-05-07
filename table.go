@@ -20,7 +20,7 @@ type TableCollumn struct {
 	Content string `json:"content"`
 }
 
-func (re Table) Write(page Page, allPages []Page, sheet string, file *excelize.File) []Page {
+func (re Table) Write(page *Page, allPages []Page, sheet string, file *excelize.File) []Page {
 
 	// failed to get max rows
 	rows, err := file.GetRows(sheet)

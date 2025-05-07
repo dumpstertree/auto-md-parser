@@ -1,6 +1,42 @@
 # <p style='font-size: 15px;'>Cooking/Recipes/Bulk/</p>
 # <p style='font-size: 40px;'>BuffaloTubes</p>
 
+## Servings
+
+Number Of Servings: 13
+
+## Cost Breakdown
+
+| Ingredient | Price (oz) | Num Oz | Cost |
+| ------------ | ------------ | ------------ | ------------ |
+| Chicken  (Thighs) | $0.09 | 192 | $17.28 |
+|<a href='buffalo_sauce.html'>Buffalo<a href='sauce.html'>Sauce</a>/a>| $0.21 | 25 | $5.25 |
+| Fajita (Small) | $0.18 | 46 | $8.28 |
+|<a href='blue_cheese_-_crumble.html'>Blue Cheese - Crumble</a>| $0.50 | 14 | $7.00 |
+|<a href='blue_cheese_-_dressing.html'>Blue Cheese - Dressing</a>| $0.17 | 16 | $2.72 |
+|<a href='onion_-_yellow.html'>Onion - Yellow</a>| $0.05 | 24 | $1.20 |
+|<a href='butter.html'>Butter</a>| $0.24 | 2 | $0.48 |
+
+Total Cost: $42.21
+
+Cost Of Servings: $3.25
+
+## Nutrition Breakdown
+
+| Ingredient | Calories (oz) | Protien (oz) | Carbs (oz) | Fat (oz) |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| Chicken  (Thighs) | $0.09 | 192 | $17.28 | $17.28 |
+|<a href='buffalo_sauce.html'>Buffalo<a href='sauce.html'>Sauce</a>/a>| $0.21 | 25 | $5.25 | $5.25 |
+| Fajita (Small) | $0.18 | 46 | $8.28 | $8.28 |
+|<a href='blue_cheese_-_crumble.html'>Blue Cheese - Crumble</a>| $0.50 | 14 | $7.00 | $7.00 |
+|<a href='blue_cheese_-_dressing.html'>Blue Cheese - Dressing</a>| $0.17 | 16 | $2.72 | $2.72 |
+|<a href='onion_-_yellow.html'>Onion - Yellow</a>| $0.05 | 24 | $1.20 | $1.20 |
+|<a href='butter.html'>Butter</a>| $0.24 | 2 | $0.48 | $0.48 |
+
+Total Calories: $42.21
+
+Calories Of Servings: $3.25
+
 <div style='page-break-after: always;'></div>
 <div style='page-break-after: always;'></div>
 

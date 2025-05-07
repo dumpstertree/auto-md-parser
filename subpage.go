@@ -21,7 +21,7 @@ type Subpage struct {
 	TextSubsection
 }
 
-func (l Subpage) Write(page Page, allPages []Page, sheet string, file *excelize.File) []Page {
+func (l Subpage) Write(page *Page, allPages []Page, sheet string, file *excelize.File) []Page {
 
 	// failed to get max rows
 	rows, err := file.GetRows(sheet)
@@ -46,6 +46,9 @@ func (l Subpage) Write(page Page, allPages []Page, sheet string, file *excelize.
 		// parse for title
 		title := parseCompoundCollumnString(l.Title, sheet, i, file)
 
+		// add link from this page to next
+		page.Content += title + "\n"
+
 		// make subpage
 		subpage := *makePage(
 			page.Path+page.DisplayName+"/",
@@ -55,14 +58,18 @@ func (l Subpage) Write(page Page, allPages []Page, sheet string, file *excelize.
 			nil,
 		)
 
-		//
+		// write subpages
 		for _, x := range l.LayoutSubsection {
-			x.Write(subpage, allPages, sheet, file)
+			x.Write(&subpage, allPages, sheet, file)
 		}
 
 		// add new page
 		allPages = append(allPages, subpage)
 	}
+
+	// add space
+	page.Content += "\n"
+
 	// return
 	return allPages
 }

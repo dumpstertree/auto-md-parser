@@ -15,7 +15,7 @@ type Code struct {
 	BaseSubsection
 }
 
-func (c Code) Write(page Page, allPages []Page, sheet string, file *excelize.File) []Page {
+func (c Code) Write(page *Page, allPages []Page, sheet string, file *excelize.File) []Page {
 
 	// failed to get max rows
 	rows, err := file.GetRows(sheet)

@@ -18,7 +18,7 @@ type Quote struct {
 	TextSubsection
 }
 
-func (q Quote) Write(page Page, allPages []Page, sheet string, file *excelize.File) []Page {
+func (q Quote) Write(page *Page, allPages []Page, sheet string, file *excelize.File) []Page {
 
 	// failed to get max rows
 	rows, err := file.GetRows(sheet)
