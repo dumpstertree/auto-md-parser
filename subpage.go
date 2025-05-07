@@ -41,13 +41,14 @@ func (l Subpage) Write(page *Page, allPages []Page, sheet string, file *excelize
 		max = len(rows)
 	}
 
+	page.Content += "<ul>\n"
 	for i := min; i <= max; i++ {
 
 		// parse for title
 		title := parseCompoundCollumnString(l.Title, sheet, i, file)
 
 		// add link from this page to next
-		page.Content += title + "\\\n"
+		page.Content += "<li>" + title + "<li>\\\n"
 
 		// make subpage
 		subpage := *makePage(
@@ -66,6 +67,7 @@ func (l Subpage) Write(page *Page, allPages []Page, sheet string, file *excelize
 		// add new page
 		allPages = append(allPages, subpage)
 	}
+	page.Content += "</ul>\n"
 
 	// add space
 	page.Content += "\n"

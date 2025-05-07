@@ -1,5 +1,5 @@
 # <p style='font-size: 15px;'>Cooking/Ingredients/</p>
-# <p style='font-size: 40px;'>Chicken  [Thighs]</p>
+# <p style='font-size: 40px;'>Chicken  (Thighs)</p>
 
 <div style='page-break-after: always;'></div>
 <div style='page-break-after: always;'></div>

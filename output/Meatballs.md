@@ -12,11 +12,11 @@ Number Of Servings:
 |  |  |  | 4608 |
 |  |  |  |  |
 | Ingredient | Num Oz's | Price per Oz | Cost |
-|<a href='beef_-_ground.html'>Beef - Ground</a>| 64 | $0.27 | $17.28 |
-|<a href='pork_-_ground.html'>Pork - Ground</a>| 16 | $0.23 | $3.68 |
-|<a href='onion_-_yellow.html'>Onion - Yellow</a>| 12 | $0.05 | $0.60 |
-|<a href='breadcrumbs.html'>Breadcrumbs</a>| 5 | $0.08 | $0.40 |
-|<a href='egg.html'>Egg</a>| 2 | $0.00 | $0.00 |
+| <a href='beef_-_ground.html'>Beef - Ground</a> | 64 | $0.27 | $17.28 |
+| <a href='pork_-_ground.html'>Pork - Ground</a> | 16 | $0.23 | $3.68 |
+| <a href='onion_-_yellow.html'>Onion - Yellow</a> | 12 | $0.05 | $0.60 |
+| <a href='breadcrumbs.html'>Breadcrumbs</a> | 5 | $0.08 | $0.40 |
+| <a href='egg.html'>Egg</a> | 2 | $0.00 | $0.00 |
 
 Total Cost: 15
 
@@ -29,11 +29,11 @@ Cost Of Servings: $21.96
 |  |  |  | 4608 | 4608 |
 |  |  |  |  |  |
 | Ingredient | Num Oz's | Price per Oz | Cost | Cost |
-|<a href='beef_-_ground.html'>Beef - Ground</a>| 64 | $0.27 | $17.28 | $17.28 |
-|<a href='pork_-_ground.html'>Pork - Ground</a>| 16 | $0.23 | $3.68 | $3.68 |
-|<a href='onion_-_yellow.html'>Onion - Yellow</a>| 12 | $0.05 | $0.60 | $0.60 |
-|<a href='breadcrumbs.html'>Breadcrumbs</a>| 5 | $0.08 | $0.40 | $0.40 |
-|<a href='egg.html'>Egg</a>| 2 | $0.00 | $0.00 | $0.00 |
+| <a href='beef_-_ground.html'>Beef - Ground</a> | 64 | $0.27 | $17.28 | $17.28 |
+| <a href='pork_-_ground.html'>Pork - Ground</a> | 16 | $0.23 | $3.68 | $3.68 |
+| <a href='onion_-_yellow.html'>Onion - Yellow</a> | 12 | $0.05 | $0.60 | $0.60 |
+| <a href='breadcrumbs.html'>Breadcrumbs</a> | 5 | $0.08 | $0.40 | $0.40 |
+| <a href='egg.html'>Egg</a> | 2 | $0.00 | $0.00 | $0.00 |
 
 Total Calories: 15
 

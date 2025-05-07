@@ -242,19 +242,83 @@ func (p Page) applyExternalLinks(pages []Page) string {
 
 	return content
 }
+
 func (p Page) applyInternalLinks(pages []Page) string {
 
-	content := p.Content
-	for _, c := range pages {
-		if c.DisplayName == p.DisplayName {
-			continue
+	// create blank content
+	content := ""
+
+	// iterate over each word range
+	i := 0
+	for i < len(p.Content) {
+
+		curRune := p.Content[i]
+
+		found := false
+		for _, page := range pages {
+
+			// find all words matching
+			re := regexp.MustCompile(page.DisplayName)
+			x := re.FindAllStringIndex(p.Content, -1)
+
+			inRange := false
+			min := -1
+			max := -1
+
+			for _, r := range x {
+				min = r[0]
+				max = r[1]
+
+				inRange = i >= min && i < max
+				if inRange {
+					break
+				}
+			}
+
+			if inRange {
+
+				validEntry := []rune{' ', '\n', '>'}
+				validExit := []rune{' ', '\n', '\\', '<'}
+
+				entryIsValid := true
+				exitIsValid := true
+				if min > 0 {
+					fmt.Println(page.DisplayName + " entry : " + string(p.Content[min-1]))
+					for _, v := range validEntry {
+						entryIsValid = p.Content[min-1] == byte(v)
+						if entryIsValid {
+							break
+						}
+					}
+				}
+				if max < len(p.Content)-1 {
+					fmt.Println(page.DisplayName + " exit : " + string(p.Content[max]))
+					for _, v := range validExit {
+						exitIsValid = p.Content[max] == byte(v)
+						if exitIsValid {
+							break
+						}
+					}
+				}
+
+				if entryIsValid && exitIsValid {
+					content += "<a href='" + page.LinkName + ".html'>" + page.DisplayName + "</a>"
+					i = max
+					fmt.Println("found match! " + page.DisplayName)
+					found = true
+					break
+				}
+			}
 		}
 
-		re := regexp.MustCompile(`([^\n]|[^ ])` + c.DisplayName + `([^\n]|[^ ]|[^.]|[^?]|[^!][^,][^;])`)
-		content = re.ReplaceAllString(content, "<a href='"+c.LinkName+".html'>"+c.DisplayName+"</a>")
-
+		if !found {
+			content += string(curRune)
+			i++
+		}
 	}
+
 	return content
+
 }
 
 // constructors
@@ -288,9 +352,6 @@ func makePage(path string, name string, content string, source string, tags []st
 	linkName = strings.Replace(linkName, "(", "[", -1)
 	linkName = strings.Replace(linkName, ")", "]", -1)
 	linkName = strings.ToLower(linkName)
-
-	name = strings.Replace(name, "(", "[", -1)
-	name = strings.Replace(name, ")", "]", -1)
 
 	return &Page{
 		DisplayName: name,

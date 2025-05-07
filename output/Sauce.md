@@ -9,9 +9,9 @@ Number Of Servings: 6
 
 | Ingredient | Price (oz) | Num Oz | Cost |
 | ------------ | ------------ | ------------ | ------------ |
-|<a href='onion_-_yellow.html'>Onion - Yellow</a>| $0.05 | 24 | $1.20 |
-|<a href='tomato_-_crushed.html'>Tomato - Crushed</a>| $0.06 | 112 | $6.72 |
-|<a href='tomato_-_paste.html'>Tomato - Paste</a>| $0.15 | 3 | $0.45 |
+| <a href='onion_-_yellow.html'>Onion - Yellow</a> | $0.05 | 24 | $1.20 |
+| <a href='tomato_-_crushed.html'>Tomato - Crushed</a> | $0.06 | 112 | $6.72 |
+| <a href='tomato_-_paste.html'>Tomato - Paste</a> | $0.15 | 3 | $0.45 |
 | Oil - Olive | $0.00 | 0 | $0.00 |
 | Garlic | $0.00 | 0 | $0.00 |
 
@@ -23,9 +23,9 @@ Cost Of Servings: $1.40
 
 | Ingredient | Calories (oz) | Protien (oz) | Carbs (oz) | Fat (oz) |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-|<a href='onion_-_yellow.html'>Onion - Yellow</a>| $0.05 | 24 | $1.20 | $1.20 |
-|<a href='tomato_-_crushed.html'>Tomato - Crushed</a>| $0.06 | 112 | $6.72 | $6.72 |
-|<a href='tomato_-_paste.html'>Tomato - Paste</a>| $0.15 | 3 | $0.45 | $0.45 |
+| <a href='onion_-_yellow.html'>Onion - Yellow</a> | $0.05 | 24 | $1.20 | $1.20 |
+| <a href='tomato_-_crushed.html'>Tomato - Crushed</a> | $0.06 | 112 | $6.72 | $6.72 |
+| <a href='tomato_-_paste.html'>Tomato - Paste</a> | $0.15 | 3 | $0.45 | $0.45 |
 | Oil - Olive | $0.00 | 0 | $0.00 | $0.00 |
 | Garlic | $0.00 | 0 | $0.00 | $0.00 |
 

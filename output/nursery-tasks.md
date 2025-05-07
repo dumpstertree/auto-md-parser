@@ -22,7 +22,7 @@
  : Lettuce (3) - Chalupa Romaine
  : Mesclun mix (salanova) (3) - Salanova Premier
  : Swiss Chard (1) - Fordhook Giant
- : Hot peppers (1) - Early Jalapeño
+ : Hot peppers (1) - Early JalapenÌo
  : Peppers (field) (8) - Lunchbox
  : Peppers (field) (7) - Pobalno
  : Peppers (field) (6) - Carmen

@@ -10,11 +10,11 @@ Number Of Servings: 15
 | Ingredient | Price (oz) | Num Oz | Cost |
 | ------------ | ------------ | ------------ | ------------ |
 | Chicken  (Thighs) | $0.09 | 144 | $12.96 |
-|<a href='sour_cream.html'>Sour Cream</a>| $0.12 | 6 | $0.72 |
-|<a href='spinach.html'>Spinach</a>| $0.30 | 10 | $3.00 |
-|<a href='cream_cheese.html'>Cream Cheese</a>| $0.16 | 16 | $2.56 |
-|<a href='cheese_-_cheddar.html'>Cheese - Cheddar</a>| $0.22 | 10 | $2.20 |
-|<a href='salsa.html'>Salsa</a>| $0.13 | 10 | $1.30 |
+| <a href='sour_cream.html'>Sour Cream</a> | $0.12 | 6 | $0.72 |
+| <a href='spinach.html'>Spinach</a> | $0.30 | 10 | $3.00 |
+| <a href='cream_cheese.html'>Cream Cheese</a> | $0.16 | 16 | $2.56 |
+| <a href='cheese_-_cheddar.html'>Cheese - Cheddar</a> | $0.22 | 10 | $2.20 |
+| <a href='salsa.html'>Salsa</a> | $0.13 | 10 | $1.30 |
 | Fajita (Small) | $0.18 | 35 | $6.30 |
 
 Total Cost: $29.04
@@ -26,11 +26,11 @@ Cost Of Servings: $1.94
 | Ingredient | Calories (oz) | Protien (oz) | Carbs (oz) | Fat (oz) |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
 | Chicken  (Thighs) | $0.09 | 144 | $12.96 | $12.96 |
-|<a href='sour_cream.html'>Sour Cream</a>| $0.12 | 6 | $0.72 | $0.72 |
-|<a href='spinach.html'>Spinach</a>| $0.30 | 10 | $3.00 | $3.00 |
-|<a href='cream_cheese.html'>Cream Cheese</a>| $0.16 | 16 | $2.56 | $2.56 |
-|<a href='cheese_-_cheddar.html'>Cheese - Cheddar</a>| $0.22 | 10 | $2.20 | $2.20 |
-|<a href='salsa.html'>Salsa</a>| $0.13 | 10 | $1.30 | $1.30 |
+| <a href='sour_cream.html'>Sour Cream</a> | $0.12 | 6 | $0.72 | $0.72 |
+| <a href='spinach.html'>Spinach</a> | $0.30 | 10 | $3.00 | $3.00 |
+| <a href='cream_cheese.html'>Cream Cheese</a> | $0.16 | 16 | $2.56 | $2.56 |
+| <a href='cheese_-_cheddar.html'>Cheese - Cheddar</a> | $0.22 | 10 | $2.20 | $2.20 |
+| <a href='salsa.html'>Salsa</a> | $0.13 | 10 | $1.30 | $1.30 |
 | Fajita (Small) | $0.18 | 35 | $6.30 | $6.30 |
 
 Total Calories: $29.04
