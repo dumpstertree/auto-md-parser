@@ -34,31 +34,31 @@
 ## Nutrition
 
 <ul>
-<li>Fajita (Small)<li>\
-<li><a href='onion_-_yellow.html'>Onion - Yellow</a><li>\
-<li>Chicken  (Thighs)<li>\
-<li><a href='beef_-_ground.html'>Beef - Ground</a><li>\
-<li><a href='cheese_-_american.html'>Cheese - American</a><li>\
-<li><a href='ketchup.html'>Ketchup</a><li>\
-<li><a href='mustard.html'>Mustard</a><li>\
-<li><a href='pickles_-_whole.html'>Pickles - Whole</a><li>\
-<li><a href='flour.html'>Flour</a><li>\
-<li><a href='butter.html'>Butter</a><li>\
-<li><a href='egg.html'>Egg</a><li>\
-<li><a href='pork_-_ground.html'>Pork - Ground</a><li>\
-<li><a href='breadcrumbs.html'>Breadcrumbs</a><li>\
-<li><a href='mozerrela_.html'>Mozerrela </a><li>\
-<li><a href='tomato_-_diced.html'>Tomato - Diced</a><li>\
-<li><a href='tomato_-_crushed.html'>Tomato - Crushed</a><li>\
-<li><a href='cheese_-_cheddar.html'>Cheese - Cheddar</a><li>\
-<li><a href='tomato_-_paste.html'>Tomato - Paste</a><li>\
-<li><a href='buffalo_sauce.html'>Buffalo Sauce</a><li>\
-<li><a href='blue_cheese_-_crumble.html'>Blue Cheese - Crumble</a><li>\
-<li><a href='blue_cheese_-_dressing.html'>Blue Cheese - Dressing</a><li>\
-<li><a href='salsa.html'>Salsa</a><li>\
-<li><a href='spinach.html'>Spinach</a><li>\
-<li><a href='cream_cheese.html'>Cream Cheese</a><li>\
-<li><a href='sour_cream.html'>Sour Cream</a><li>\
+<li>Fajita (Small)<li>
+<li><a href='onion_-_yellow.html'>Onion - Yellow</a><li>
+<li>Chicken  (Thighs)<li>
+<li><a href='beef_-_ground.html'>Beef - Ground</a><li>
+<li><a href='cheese_-_american.html'>Cheese - American</a><li>
+<li><a href='ketchup.html'>Ketchup</a><li>
+<li><a href='mustard.html'>Mustard</a><li>
+<li><a href='pickles_-_whole.html'>Pickles - Whole</a><li>
+<li><a href='flour.html'>Flour</a><li>
+<li><a href='butter.html'>Butter</a><li>
+<li><a href='egg.html'>Egg</a><li>
+<li><a href='pork_-_ground.html'>Pork - Ground</a><li>
+<li><a href='breadcrumbs.html'>Breadcrumbs</a><li>
+<li><a href='mozerrela_.html'>Mozerrela </a><li>
+<li><a href='tomato_-_diced.html'>Tomato - Diced</a><li>
+<li><a href='tomato_-_crushed.html'>Tomato - Crushed</a><li>
+<li><a href='cheese_-_cheddar.html'>Cheese - Cheddar</a><li>
+<li><a href='tomato_-_paste.html'>Tomato - Paste</a><li>
+<li><a href='buffalo_sauce.html'>Buffalo Sauce</a><li>
+<li><a href='blue_cheese_-_crumble.html'>Blue Cheese - Crumble</a><li>
+<li><a href='blue_cheese_-_dressing.html'>Blue Cheese - Dressing</a><li>
+<li><a href='salsa.html'>Salsa</a><li>
+<li><a href='spinach.html'>Spinach</a><li>
+<li><a href='cream_cheese.html'>Cream Cheese</a><li>
+<li><a href='sour_cream.html'>Sour Cream</a><li>
 </ul>
 
 | Ingredient | Calories (oz) | Protein (oz) | Carbs (oz) | Fat (oz) |
