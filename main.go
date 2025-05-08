@@ -258,7 +258,7 @@ func (p Page) applyInternalLinks(pages []Page) string {
 		for _, page := range pages {
 
 			// find all words matching
-			re := regexp.MustCompile(page.DisplayName)
+			re := regexp.MustCompile(`(?i)` + page.DisplayName)
 			x := re.FindAllStringIndex(p.Content, -1)
 
 			inRange := false
