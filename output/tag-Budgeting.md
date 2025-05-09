@@ -1,8 +1,11 @@
 # <p style='font-size: 15px;'>Tags/Index/</p>
 # <p style='font-size: 40px;'>#budgeting</p>
 
-<a href='buffalotubes.html'>BuffaloTubes</a> \
+<a href='bulkbuffalo_tubes.html'>BulkBuffalo Tubes</a> \
+<a href='bulkmeatballs.html'>BulkMeatballs</a> \
+<a href='bulktaquitos.html'>BulkTaquitos</a> \
+<a href='bulktomato_sauce.html'>BulkTomato Sauce</a> \
 <a href='burgers.html'>Burgers</a> \
-<a href='meatballs.html'>Meatballs</a> \
-<a href='sauce.html'>Sauce</a> \
-<a href='taquitos.html'>Taquitos</a>
+<a href='dailyfried_rice.html'>DailyFried Rice</a> \
+<a href='holidaystring_bean_caserole.html'>HolidayString Bean Caserole</a> \
+<a href='holidaystuffing.html'>HolidayStuffing</a>

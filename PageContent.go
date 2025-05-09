@@ -1,6 +1,8 @@
 package main
 
 import (
+	"strings"
+
 	"github.com/xuri/excelize/v2"
 )
 
@@ -30,10 +32,28 @@ func buildPageContent(layoutToFile map[*OrderedLayout]*excelize.File, allPages m
 		//iterate on the required pages
 		for _, sheet := range reqSheets {
 
+			x := ""
+			x += layout.Path
+			if !strings.HasSuffix(x, "/") {
+				x += "/"
+			}
+
+			x = x + strings.Replace(sheet, "|", "/", -1)
+			y := strings.Split(x, "/")
+
+			path := ""
+			for i, r := range y {
+				last := i == len(y)-1
+				if last {
+					break
+				}
+				path += r + "/"
+			}
+
 			// make the current page
 			curPage := *makePage(
-				layout.Path+"/",
-				sheet,
+				path,
+				y[len(y)-1],
 				"",
 				layout.URL,
 				layout.Tags,

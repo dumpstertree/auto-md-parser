@@ -339,6 +339,8 @@ func makePageExplicit(path string, name string, linkName string, content string,
 }
 func makePage(path string, name string, content string, source string, tags []string) *Page {
 
+	fmt.Println("make page path " + path)
+	fmt.Println("make page name " + name)
 	t := []PageTag{}
 	for _, i := range tags {
 		t = append(t, *makeTag(i))

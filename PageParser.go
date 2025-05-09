@@ -16,6 +16,7 @@ func buildPageLists(layoutToFile map[*OrderedLayout]*excelize.File) map[*exceliz
 
 	// create return value
 	allPages := make(map[*excelize.File][]string)
+
 	// add pages for each path
 	for layout, file := range layoutToFile {
 

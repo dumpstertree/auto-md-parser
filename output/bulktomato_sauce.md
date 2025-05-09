@@ -1,5 +1,5 @@
-# <p style='font-size: 15px;'>Cooking/Recipes/Bulk/</p>
-# <p style='font-size: 40px;'>Sauce</p>
+# <p style='font-size: 15px;'>Cooking/Recipes/</p>
+# <p style='font-size: 40px;'>BulkTomato Sauce</p>
 
 ## Servings
 
