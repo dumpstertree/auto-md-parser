@@ -56,6 +56,7 @@ func (l Subpage) Write(page *Page, allPages []Page, sheet string, file *excelize
 			title,
 			"",
 			page.Source,
+			page.OverrideSource,
 			nil,
 		)
 

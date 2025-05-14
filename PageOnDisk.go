@@ -26,8 +26,13 @@ func WriteToDisk(path string, page Page, useFooter bool) *PageOnDisk {
 	// add footer if requested
 	if useFooter {
 
+		source := page.Source
+		if page.OverrideSource != "" {
+			source = page.OverrideSource
+		}
+
 		useTags := len(page.Tags) > 0
-		useSource := page.Source != ""
+		useSource := source != ""
 
 		if useTags || useSource {
 			content += "<div style='page-break-after: always;'></div>\n"
@@ -60,8 +65,9 @@ func WriteToDisk(path string, page Page, useFooter bool) *PageOnDisk {
 
 		// create source link
 		if useSource {
+
 			content += "<div style='text-align: right'>\n"
-			content += "<a href='" + page.Source + "'>SOURCE</a>\n"
+			content += "<a href='" + source + "'>SOURCE</a>\n"
 			content += "</div>\n"
 		}
 	}

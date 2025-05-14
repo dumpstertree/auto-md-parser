@@ -22,23 +22,40 @@ func makePageSummary(pages []Page) *PageSummary {
 func buildPageSumary(pages []Page) []Page {
 
 	// get all paths
-	paths := []string{}
+	pathsA := []string{}
+	pathsB := []string{}
 	pathForName := make(map[string]string)
 	for _, k := range pages {
 		p := k.Path + k.DisplayName
-		paths = append(paths, p)
+		if strings.Contains(k.Path, "Tag") {
+			pathsB = append(pathsB, p)
+
+		} else {
+			pathsA = append(pathsA, p)
+		}
 		pathForName[p] = k.LinkName
 	}
 
 	// sort
 	c := collate.New(language.English, collate.IgnoreCase)
-	c.SortStrings(paths)
+	c.SortStrings(pathsA)
 
 	// entry line - always empty
 	content := "#\n"
 
+	// write all content
+	content = Write(content, pathsA, pathForName)
+	content = Write(content, pathsB, pathForName)
+
+	// return new page
+	return []Page{
+		*makePageExplicit("", "SUMMARY", "SUMMARY", content, "", "", nil),
+	}
+}
+
+func Write(content string, pathsA []string, pathForName map[string]string) string {
 	// iterate over each path
-	for pathIndex, path := range paths {
+	for pathIndex, path := range pathsA {
 
 		// split this path
 		split := strings.Split(path, "/")
@@ -49,7 +66,7 @@ func buildPageSumary(pages []Page) []Page {
 			if pathIndex > 0 {
 
 				//
-				splitlast := strings.Split(paths[pathIndex-1], "/")
+				splitlast := strings.Split(pathsA[pathIndex-1], "/")
 
 				if len(splitlast) > subPathIndex && splitlast[subPathIndex] == subPath {
 					continue
@@ -82,7 +99,5 @@ func buildPageSumary(pages []Page) []Page {
 			}
 		}
 	}
-	return []Page{
-		*makePageExplicit("", "SUMMARY", "SUMMARY", content, "", nil),
-	}
+	return content
 }

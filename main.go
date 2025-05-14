@@ -319,7 +319,7 @@ func (p Page) applyInternalLinks(pages []Page) string {
 }
 
 // constructors
-func makePageExplicit(path string, name string, linkName string, content string, source string, tags []string) *Page {
+func makePageExplicit(path string, name string, linkName string, content string, source string, overrideSource string, tags []string) *Page {
 
 	t := []PageTag{}
 	for _, i := range tags {
@@ -329,18 +329,17 @@ func makePageExplicit(path string, name string, linkName string, content string,
 	name = strings.Replace(name, " ", "_", -1)
 
 	return &Page{
-		DisplayName: name,
-		LinkName:    linkName,
-		Path:        path,
-		Content:     content,
-		Source:      source,
-		Tags:        t,
+		DisplayName:    name,
+		LinkName:       linkName,
+		Path:           path,
+		Content:        content,
+		Source:         source,
+		OverrideSource: overrideSource,
+		Tags:           t,
 	}
 }
-func makePage(path string, name string, content string, source string, tags []string) *Page {
+func makePage(path string, name string, content string, source string, overrideSource string, tags []string) *Page {
 
-	fmt.Println("make page path " + path)
-	fmt.Println("make page name " + name)
 	t := []PageTag{}
 	for _, i := range tags {
 		t = append(t, *makeTag(i))
@@ -353,12 +352,13 @@ func makePage(path string, name string, content string, source string, tags []st
 	linkName = strings.ToLower(linkName)
 
 	return &Page{
-		DisplayName: name,
-		LinkName:    linkName,
-		Path:        path,
-		Content:     content,
-		Source:      source,
-		Tags:        t,
+		DisplayName:    name,
+		LinkName:       linkName,
+		Path:           path,
+		Content:        content,
+		Source:         source,
+		OverrideSource: overrideSource,
+		Tags:           t,
 	}
 }
 func makeTag(name string) *PageTag {
@@ -379,6 +379,7 @@ type ISubSubsection interface {
 type OrderedLayout struct {
 	Title            string
 	URL              string
+	OverrideURL      string
 	Path             string
 	IncludeSheets    []string
 	ExcludeSheets    []string
@@ -426,12 +427,13 @@ func (s TextSubsection) ModifyTextEnds(text string) string {
 }
 
 type Page struct {
-	DisplayName string
-	LinkName    string
-	Path        string
-	Content     string
-	Source      string
-	Tags        []PageTag
+	DisplayName    string
+	LinkName       string
+	Path           string
+	Content        string
+	Source         string
+	OverrideSource string
+	Tags           []PageTag
 }
 
 type PageTag struct {

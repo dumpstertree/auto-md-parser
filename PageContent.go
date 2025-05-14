@@ -56,6 +56,7 @@ func buildPageContent(layoutToFile map[*OrderedLayout]*excelize.File, allPages m
 				y[len(y)-1],
 				"",
 				layout.URL,
+				layout.OverrideURL,
 				layout.Tags,
 			)
 
