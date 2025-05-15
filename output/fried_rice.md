@@ -7,13 +7,45 @@ Number Of Servings: 6
 
 ## Cost Breakdown
 
-| Ingredient | Price (oz) | Num Oz | Cost |
-| ------------ | ------------ | ------------ | ------------ |
-| <a href='onion_-_yellow.html'>Onion - Yellow</a> | $0.05 | 24 | $1.20 |
-| <a href='tomato_-_crushed.html'>Tomato - Crushed</a> | $0.06 | 112 | $6.72 |
-| <a href='tomato_-_paste.html'>Tomato - Paste</a> | $0.15 | 3 | $0.45 |
-| Oil - Olive | $0.00 | 0 | $0.00 |
-| Garlic | $0.00 | 0 | $0.00 |
+<div class='table-container'><table><thead>
+<tr>
+<th>Ingredient</th>
+<th>Price (oz)</th>
+<th>Num Oz</th>
+<th>Cost</th>
+</tr>
+</thead><tbody><tr>
+<td>Onion - Yellow</td>
+<td>$0.05</td>
+<td>24</td>
+<td>$1.20</td>
+</tr>
+<tr>
+<td>Tomato - Crushed</td>
+<td>$0.06</td>
+<td>112</td>
+<td>$6.72</td>
+</tr>
+<tr>
+<td>Tomato - Paste</td>
+<td>$0.15</td>
+<td>3</td>
+<td>$0.45</td>
+</tr>
+<tr>
+<td>Oil - Olive</td>
+<td>$0.00</td>
+<td>0</td>
+<td>$0.00</td>
+</tr>
+<tr>
+<td>Garlic</td>
+<td>$0.00</td>
+<td>0</td>
+<td>$0.00</td>
+</tr>
+</tbody></table></div>
+
 
 Total Cost: $8.37
 
@@ -21,13 +53,51 @@ Cost Of Servings: $1.40
 
 ## Nutrition Breakdown
 
-| Ingredient | Calories (oz) | Protien (oz) | Carbs (oz) | Fat (oz) |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| <a href='onion_-_yellow.html'>Onion - Yellow</a> | $0.05 | 24 | $1.20 | $1.20 |
-| <a href='tomato_-_crushed.html'>Tomato - Crushed</a> | $0.06 | 112 | $6.72 | $6.72 |
-| <a href='tomato_-_paste.html'>Tomato - Paste</a> | $0.15 | 3 | $0.45 | $0.45 |
-| Oil - Olive | $0.00 | 0 | $0.00 | $0.00 |
-| Garlic | $0.00 | 0 | $0.00 | $0.00 |
+<div class='table-container'><table><thead>
+<tr>
+<th>Ingredient</th>
+<th>Calories (oz)</th>
+<th>Protien (oz)</th>
+<th>Carbs (oz)</th>
+<th>Fat (oz)</th>
+</tr>
+</thead><tbody><tr>
+<td>Onion - Yellow</td>
+<td>$0.05</td>
+<td>24</td>
+<td>$1.20</td>
+<td>$1.20</td>
+</tr>
+<tr>
+<td>Tomato - Crushed</td>
+<td>$0.06</td>
+<td>112</td>
+<td>$6.72</td>
+<td>$6.72</td>
+</tr>
+<tr>
+<td>Tomato - Paste</td>
+<td>$0.15</td>
+<td>3</td>
+<td>$0.45</td>
+<td>$0.45</td>
+</tr>
+<tr>
+<td>Oil - Olive</td>
+<td>$0.00</td>
+<td>0</td>
+<td>$0.00</td>
+<td>$0.00</td>
+</tr>
+<tr>
+<td>Garlic</td>
+<td>$0.00</td>
+<td>0</td>
+<td>$0.00</td>
+<td>$0.00</td>
+</tr>
+</tbody></table></div>
+
 
 Total Calories: $8.37
 

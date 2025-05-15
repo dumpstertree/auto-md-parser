@@ -7,17 +7,69 @@ Number Of Servings: 15
 
 ## Cost Breakdown
 
-| Ingredient | Price (oz) | Num Oz | Cost |
-| ------------ | ------------ | ------------ | ------------ |
-| <a href='beef_-_ground.html'>Beef - Ground</a> | $0.27 | 64 | $17.28 |
-| <a href='onion_-_yellow.html'>Onion - Yellow</a> | $0.05 | 12 | $0.60 |
-| <a href='ketchup.html'>Ketchup</a> | $0.10 | 16 | $1.60 |
-| <a href='mustard.html'>Mustard</a> | $0.27 | 12 | $3.24 |
-| <a href='pickles_-_whole.html'>Pickles - Whole</a> | $0.11 | 16 | $1.76 |
-| <a href='cheese_-_american.html'>Cheese - American</a> | $0.31 | 16 | $4.96 |
-| <a href='butter.html'>Butter</a> | $0.24 |  | $0.00 |
-| <a href='flour.html'>Flour</a> | $0.04 |  | $0.00 |
-| <a href='egg.html'>Egg</a> | $0.00 | 1 | $0.00 |
+<div class='table-container'><table><thead>
+<tr>
+<th>Ingredient</th>
+<th>Price (oz)</th>
+<th>Num Oz</th>
+<th>Cost</th>
+</tr>
+</thead><tbody><tr>
+<td>Beef - Ground</td>
+<td>$0.27</td>
+<td>64</td>
+<td>$17.28</td>
+</tr>
+<tr>
+<td>Onion - Yellow</td>
+<td>$0.05</td>
+<td>12</td>
+<td>$0.60</td>
+</tr>
+<tr>
+<td>Ketchup</td>
+<td>$0.10</td>
+<td>16</td>
+<td>$1.60</td>
+</tr>
+<tr>
+<td>Mustard</td>
+<td>$0.27</td>
+<td>12</td>
+<td>$3.24</td>
+</tr>
+<tr>
+<td>Pickles - Whole</td>
+<td>$0.11</td>
+<td>16</td>
+<td>$1.76</td>
+</tr>
+<tr>
+<td>Cheese - American</td>
+<td>$0.31</td>
+<td>16</td>
+<td>$4.96</td>
+</tr>
+<tr>
+<td>Butter</td>
+<td>$0.24</td>
+<td></td>
+<td>$0.00</td>
+</tr>
+<tr>
+<td>Flour</td>
+<td>$0.04</td>
+<td></td>
+<td>$0.00</td>
+</tr>
+<tr>
+<td>Egg</td>
+<td>$0.00</td>
+<td>1</td>
+<td>$0.00</td>
+</tr>
+</tbody></table></div>
+
 
 Total Cost: $29.44
 
@@ -25,17 +77,79 @@ Cost Of Servings: $1.96
 
 ## Nutrition Breakdown
 
-| Ingredient | Calories (oz) | Protien (oz) | Carbs (oz) | Fat (oz) |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| <a href='beef_-_ground.html'>Beef - Ground</a> | $0.27 | 64 | $17.28 | $17.28 |
-| <a href='onion_-_yellow.html'>Onion - Yellow</a> | $0.05 | 12 | $0.60 | $0.60 |
-| <a href='ketchup.html'>Ketchup</a> | $0.10 | 16 | $1.60 | $1.60 |
-| <a href='mustard.html'>Mustard</a> | $0.27 | 12 | $3.24 | $3.24 |
-| <a href='pickles_-_whole.html'>Pickles - Whole</a> | $0.11 | 16 | $1.76 | $1.76 |
-| <a href='cheese_-_american.html'>Cheese - American</a> | $0.31 | 16 | $4.96 | $4.96 |
-| <a href='butter.html'>Butter</a> | $0.24 |  | $0.00 | $0.00 |
-| <a href='flour.html'>Flour</a> | $0.04 |  | $0.00 | $0.00 |
-| <a href='egg.html'>Egg</a> | $0.00 | 1 | $0.00 | $0.00 |
+<div class='table-container'><table><thead>
+<tr>
+<th>Ingredient</th>
+<th>Calories (oz)</th>
+<th>Protien (oz)</th>
+<th>Carbs (oz)</th>
+<th>Fat (oz)</th>
+</tr>
+</thead><tbody><tr>
+<td>Beef - Ground</td>
+<td>$0.27</td>
+<td>64</td>
+<td>$17.28</td>
+<td>$17.28</td>
+</tr>
+<tr>
+<td>Onion - Yellow</td>
+<td>$0.05</td>
+<td>12</td>
+<td>$0.60</td>
+<td>$0.60</td>
+</tr>
+<tr>
+<td>Ketchup</td>
+<td>$0.10</td>
+<td>16</td>
+<td>$1.60</td>
+<td>$1.60</td>
+</tr>
+<tr>
+<td>Mustard</td>
+<td>$0.27</td>
+<td>12</td>
+<td>$3.24</td>
+<td>$3.24</td>
+</tr>
+<tr>
+<td>Pickles - Whole</td>
+<td>$0.11</td>
+<td>16</td>
+<td>$1.76</td>
+<td>$1.76</td>
+</tr>
+<tr>
+<td>Cheese - American</td>
+<td>$0.31</td>
+<td>16</td>
+<td>$4.96</td>
+<td>$4.96</td>
+</tr>
+<tr>
+<td>Butter</td>
+<td>$0.24</td>
+<td></td>
+<td>$0.00</td>
+<td>$0.00</td>
+</tr>
+<tr>
+<td>Flour</td>
+<td>$0.04</td>
+<td></td>
+<td>$0.00</td>
+<td>$0.00</td>
+</tr>
+<tr>
+<td>Egg</td>
+<td>$0.00</td>
+<td>1</td>
+<td>$0.00</td>
+<td>$0.00</td>
+</tr>
+</tbody></table></div>
+
 
 Total Calories: $29.44
 

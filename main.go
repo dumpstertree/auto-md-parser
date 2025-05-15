@@ -92,9 +92,11 @@ func Reload() {
 
 	// iterate over each page so far
 	for i, p := range allPages {
+		fmt.Println("Adding External Links: " + p.DisplayName)
 		allPages[i].Content = p.applyExternalLinks(allPages)
 	}
 	for i, p := range allPages {
+		fmt.Println("Adding Internal Links: " + p.DisplayName)
 		allPages[i].Content = p.applyInternalLinks(allPages)
 	}
 
@@ -105,6 +107,7 @@ func Reload() {
 
 	// write all
 	for _, i := range allPages {
+		fmt.Println("Writing to Disk: " + i.DisplayName)
 		WriteToDisk(outputPath, i, i.DisplayName != "SUMMARY")
 	}
 
@@ -256,6 +259,11 @@ func (p Page) applyInternalLinks(pages []Page) string {
 
 		found := false
 		for _, page := range pages {
+
+			// dont link to self
+			if p.DisplayName == page.DisplayName {
+				continue
+			}
 
 			// find all words matching
 			re := regexp.MustCompile(`(?i)` + page.DisplayName)

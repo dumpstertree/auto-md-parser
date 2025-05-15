@@ -31,25 +31,6 @@
             "content"   : "Nutrition"
         },
         {
-            "type"      : "subpage",
-            "title"     : "@A",
-            "rowmin"    : 2,
-            "sections"   : [
-                {
-                    "type"      : "subheader",
-                    "content"   : "Entry"
-                },
-                {
-                    "type"      : "paragraph",
-                    "content"   : "@B"
-                },
-                {
-                    "type"      : "subheader",
-                    "content"   : "Exit"
-                }
-            ]
-        },
-        {
             "type"      : "table",
             "rowmin"    : 2,
             "content"   : [

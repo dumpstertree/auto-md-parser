@@ -7,16 +7,93 @@ Number Of Servings:
 
 ## Cost Breakdown
 
-| Ingredient | Price (oz) | Num Oz | Cost |
-| ------------ | ------------ | ------------ | ------------ |
-|  |  |  | 4608 |
-|  |  |  |  |
-| Ingredient | Num Oz's | Price per Oz | Cost |
-| <a href='beef_-_ground.html'>Beef - Ground</a> | 64 | $0.27 | $17.28 |
-| <a href='pork_-_ground.html'>Pork - Ground</a> | 16 | $0.23 | $3.68 |
-| <a href='onion_-_yellow.html'>Onion - Yellow</a> | 12 | $0.05 | $0.60 |
-| <a href='breadcrumbs.html'>Breadcrumbs</a> | 5 | $0.08 | $0.40 |
-| <a href='egg.html'>Egg</a> | 2 | $0.00 | $0.00 |
+<div class='table-container'><table><thead>
+<tr>
+<th>Ingredient</th>
+<th>Price (oz)</th>
+<th>Num Oz</th>
+<th>Cost</th>
+</tr>
+</thead><tbody><tr>
+<td>Recipe</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Do thing 1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Do thing 2</td>
+<td></td>
+<td></td>
+<td>Ingredient</td>
+</tr>
+<tr>
+<td>Do thing 3</td>
+<td></td>
+<td></td>
+<td>Beef - Ground</td>
+</tr>
+<tr>
+<td>Do thing 4</td>
+<td></td>
+<td></td>
+<td>Pork - Ground</td>
+</tr>
+<tr>
+<td>Do thing 5</td>
+<td></td>
+<td></td>
+<td>Onion - Yellow</td>
+</tr>
+<tr>
+<td>Do thing 6</td>
+<td></td>
+<td></td>
+<td>Breadcrumbs</td>
+</tr>
+<tr>
+<td>Do thing 7</td>
+<td></td>
+<td></td>
+<td>Egg</td>
+</tr>
+<tr>
+<td>Do thing 8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Do thing 9</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Do thing 10</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Do thing 11</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Do thing 12</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+
 
 Total Cost: 15
 
@@ -24,16 +101,107 @@ Cost Of Servings: $21.96
 
 ## Nutrition Breakdown
 
-| Ingredient | Calories (oz) | Protien (oz) | Carbs (oz) | Fat (oz) |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-|  |  |  | 4608 | 4608 |
-|  |  |  |  |  |
-| Ingredient | Num Oz's | Price per Oz | Cost | Cost |
-| <a href='beef_-_ground.html'>Beef - Ground</a> | 64 | $0.27 | $17.28 | $17.28 |
-| <a href='pork_-_ground.html'>Pork - Ground</a> | 16 | $0.23 | $3.68 | $3.68 |
-| <a href='onion_-_yellow.html'>Onion - Yellow</a> | 12 | $0.05 | $0.60 | $0.60 |
-| <a href='breadcrumbs.html'>Breadcrumbs</a> | 5 | $0.08 | $0.40 | $0.40 |
-| <a href='egg.html'>Egg</a> | 2 | $0.00 | $0.00 | $0.00 |
+<div class='table-container'><table><thead>
+<tr>
+<th>Ingredient</th>
+<th>Calories (oz)</th>
+<th>Protien (oz)</th>
+<th>Carbs (oz)</th>
+<th>Fat (oz)</th>
+</tr>
+</thead><tbody><tr>
+<td>Recipe</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Do thing 1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Do thing 2</td>
+<td></td>
+<td></td>
+<td>Ingredient</td>
+<td>Ingredient</td>
+</tr>
+<tr>
+<td>Do thing 3</td>
+<td></td>
+<td></td>
+<td>Beef - Ground</td>
+<td>Beef - Ground</td>
+</tr>
+<tr>
+<td>Do thing 4</td>
+<td></td>
+<td></td>
+<td>Pork - Ground</td>
+<td>Pork - Ground</td>
+</tr>
+<tr>
+<td>Do thing 5</td>
+<td></td>
+<td></td>
+<td>Onion - Yellow</td>
+<td>Onion - Yellow</td>
+</tr>
+<tr>
+<td>Do thing 6</td>
+<td></td>
+<td></td>
+<td>Breadcrumbs</td>
+<td>Breadcrumbs</td>
+</tr>
+<tr>
+<td>Do thing 7</td>
+<td></td>
+<td></td>
+<td>Egg</td>
+<td>Egg</td>
+</tr>
+<tr>
+<td>Do thing 8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Do thing 9</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Do thing 10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Do thing 11</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Do thing 12</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+
 
 Total Calories: 15
 

@@ -7,15 +7,57 @@ Number Of Servings: 13
 
 ## Cost Breakdown
 
-| Ingredient | Price (oz) | Num Oz | Cost |
-| ------------ | ------------ | ------------ | ------------ |
-| Chicken  (Thighs) | $0.09 | 192 | $17.28 |
-| <a href='buffalo_sauce.html'>Buffalo Sauce</a> | $0.21 | 25 | $5.25 |
-| Fajita (Small) | $0.18 | 46 | $8.28 |
-| <a href='blue_cheese_-_crumble.html'>Blue Cheese - Crumble</a> | $0.50 | 14 | $7.00 |
-| <a href='blue_cheese_-_dressing.html'>Blue Cheese - Dressing</a> | $0.17 | 16 | $2.72 |
-| <a href='onion_-_yellow.html'>Onion - Yellow</a> | $0.05 | 24 | $1.20 |
-| <a href='butter.html'>Butter</a> | $0.24 | 2 | $0.48 |
+<div class='table-container'><table><thead>
+<tr>
+<th>Ingredient</th>
+<th>Price (oz)</th>
+<th>Num Oz</th>
+<th>Cost</th>
+</tr>
+</thead><tbody><tr>
+<td>Chicken  (Thighs)</td>
+<td>$0.09</td>
+<td>192</td>
+<td>$17.28</td>
+</tr>
+<tr>
+<td>Buffalo Sauce</td>
+<td>$0.21</td>
+<td>25</td>
+<td>$5.25</td>
+</tr>
+<tr>
+<td>Fajita (Small)</td>
+<td>$0.18</td>
+<td>46</td>
+<td>$8.28</td>
+</tr>
+<tr>
+<td>Blue Cheese - Crumble</td>
+<td>$0.50</td>
+<td>14</td>
+<td>$7.00</td>
+</tr>
+<tr>
+<td>Blue Cheese - Dressing</td>
+<td>$0.17</td>
+<td>16</td>
+<td>$2.72</td>
+</tr>
+<tr>
+<td>Onion - Yellow</td>
+<td>$0.05</td>
+<td>24</td>
+<td>$1.20</td>
+</tr>
+<tr>
+<td>Butter</td>
+<td>$0.24</td>
+<td>2</td>
+<td>$0.48</td>
+</tr>
+</tbody></table></div>
+
 
 Total Cost: $42.21
 
@@ -23,15 +65,65 @@ Cost Of Servings: $3.25
 
 ## Nutrition Breakdown
 
-| Ingredient | Calories (oz) | Protien (oz) | Carbs (oz) | Fat (oz) |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| Chicken  (Thighs) | $0.09 | 192 | $17.28 | $17.28 |
-| <a href='buffalo_sauce.html'>Buffalo Sauce</a> | $0.21 | 25 | $5.25 | $5.25 |
-| Fajita (Small) | $0.18 | 46 | $8.28 | $8.28 |
-| <a href='blue_cheese_-_crumble.html'>Blue Cheese - Crumble</a> | $0.50 | 14 | $7.00 | $7.00 |
-| <a href='blue_cheese_-_dressing.html'>Blue Cheese - Dressing</a> | $0.17 | 16 | $2.72 | $2.72 |
-| <a href='onion_-_yellow.html'>Onion - Yellow</a> | $0.05 | 24 | $1.20 | $1.20 |
-| <a href='butter.html'>Butter</a> | $0.24 | 2 | $0.48 | $0.48 |
+<div class='table-container'><table><thead>
+<tr>
+<th>Ingredient</th>
+<th>Calories (oz)</th>
+<th>Protien (oz)</th>
+<th>Carbs (oz)</th>
+<th>Fat (oz)</th>
+</tr>
+</thead><tbody><tr>
+<td>Chicken  (Thighs)</td>
+<td>$0.09</td>
+<td>192</td>
+<td>$17.28</td>
+<td>$17.28</td>
+</tr>
+<tr>
+<td>Buffalo Sauce</td>
+<td>$0.21</td>
+<td>25</td>
+<td>$5.25</td>
+<td>$5.25</td>
+</tr>
+<tr>
+<td>Fajita (Small)</td>
+<td>$0.18</td>
+<td>46</td>
+<td>$8.28</td>
+<td>$8.28</td>
+</tr>
+<tr>
+<td>Blue Cheese - Crumble</td>
+<td>$0.50</td>
+<td>14</td>
+<td>$7.00</td>
+<td>$7.00</td>
+</tr>
+<tr>
+<td>Blue Cheese - Dressing</td>
+<td>$0.17</td>
+<td>16</td>
+<td>$2.72</td>
+<td>$2.72</td>
+</tr>
+<tr>
+<td>Onion - Yellow</td>
+<td>$0.05</td>
+<td>24</td>
+<td>$1.20</td>
+<td>$1.20</td>
+</tr>
+<tr>
+<td>Butter</td>
+<td>$0.24</td>
+<td>2</td>
+<td>$0.48</td>
+<td>$0.48</td>
+</tr>
+</tbody></table></div>
+
 
 Total Calories: $42.21
 

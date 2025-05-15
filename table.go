@@ -1,7 +1,8 @@
 package main
 
 import (
-	"github.com/tzfqh/gmdtable"
+	"fmt"
+
 	"github.com/xuri/excelize/v2"
 )
 
@@ -44,11 +45,13 @@ func (re Table) Write(page *Page, allPages []Page, sheet string, file *excelize.
 	headers := getHeaders(re.Content)
 	data := getData(re.Content, sheet, min, max, file)
 
-	// get table from external package
-	table, err := gmdtable.Convert(headers, data)
-	if err != nil {
-		panic(err)
-	}
+	// // get table from external package
+	// table, err := gmdtable.Convert(headers, data)
+	// if err != nil {
+	// 	panic(err)
+	// }
+
+	table := getTable(headers, data)
 
 	// return
 	page.Content += PREFIX_TABLE + table + SUFFIX_TABLE
@@ -62,14 +65,14 @@ func getHeaders(content []TableCollumn) []string {
 	}
 	return headers
 }
-func getData(content []TableCollumn, sheet string, min int, max int, file *excelize.File) []map[string]interface{} {
+func getData(content []TableCollumn, sheet string, min int, max int, file *excelize.File) []map[string]string {
 
 	// add each for data in collumn
-	data := []map[string]interface{}{}
+	data := []map[string]string{}
 	for i := min; i <= max; i++ {
 
 		// create a map for all the headers : parsed value for row
-		m := make(map[string]interface{})
+		m := make(map[string]string)
 		for _, x := range content {
 
 			// assign after parsing string
@@ -79,4 +82,33 @@ func getData(content []TableCollumn, sheet string, min int, max int, file *excel
 		data = append(data, m)
 	}
 	return data
+}
+func getTable(header []string, data []map[string]string) string {
+	fmt.Println("start make table")
+	content := ""
+
+	content += "<div class='table-container'><table><thead>\n"
+
+	// headers
+	content += "<tr>\n"
+	for _, h := range header {
+		content += "<th>" + h + "</th>\n"
+	}
+	content += "</tr>\n"
+
+	// body
+	content += "</thead><tbody>"
+	for _, d := range data {
+		content += "<tr>\n"
+		for _, h := range header {
+			content += "<td>" + d[h] + "</td>\n"
+		}
+		content += "</tr>\n"
+	}
+
+	// end
+	content += "</tbody></table></div>\n"
+	content += "\n"
+	fmt.Println("finish make table")
+	return content
 }
