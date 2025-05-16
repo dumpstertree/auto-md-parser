@@ -12,6 +12,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"unicode"
 
 	"github.com/google/uuid"
 
@@ -182,7 +183,7 @@ func find(root, ext string) []string {
 }
 
 // parse
-func parseCompoundCollumnString(input string, sheet string, row int, file *excelize.File) string {
+func parseCompoundCollumnString2(input string, sheet string, row int, file *excelize.File) string {
 	var lineEnd = ""
 	strArr := []rune(input)
 	last := ' '
@@ -223,6 +224,69 @@ func parseCompoundCollumnString(input string, sheet string, row int, file *excel
 		last = y
 	}
 
+	return lineEnd
+}
+func parseCompoundCollumnString(input string, sheet string, row int, file *excelize.File) string {
+
+	var lineEnd = ""
+	strArr := []rune(input)
+
+	i := 0
+	for i < len(strArr) {
+
+		thisRune := strArr[i]
+		if thisRune == '@' {
+
+			// set row to passed in row by default
+			r := []string{"", strconv.Itoa(row)}
+
+			// use custom row
+			if i+1 < len(strArr) && unicode.IsLetter(strArr[i+1]) {
+				r[0] = string(strArr[i+1])
+				i++
+
+				// add letter
+				if i+1 < len(strArr) && unicode.IsDigit(strArr[i+1]) {
+					r[1] = string(strArr[i+1])
+					i++
+				}
+			}
+
+			// fetch for adress
+			cellAddress := r[0] + r[1]
+			fmt.Println(cellAddress)
+			val, err := file.GetCellValue(sheet, cellAddress)
+			if err != nil {
+				panic(err)
+			}
+
+			// fetch images for aadress
+			z, err := file.GetPictures(sheet, cellAddress)
+			if err == nil {
+				for _, pic := range z {
+
+					u := uuid.New()
+					name := u.String() + pic.Extension
+					if err := os.WriteFile(outputPath+name, pic.File, 0644); err != nil {
+						fmt.Println(err)
+
+					}
+					lineEnd += "<img src=" + name + ">"
+					images = append(images, name)
+
+				}
+			}
+
+			// add value to result
+			lineEnd += val
+			i++
+		} else {
+
+			// add value to result
+			lineEnd += string(thisRune)
+			i++
+		}
+	}
 	return lineEnd
 }
 func (p Page) applyExternalLinks(pages []Page) string {

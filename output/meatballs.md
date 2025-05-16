@@ -15,89 +15,65 @@ Number Of Servings:
 <th>Cost</th>
 </tr>
 </thead><tbody><tr>
-<td>Recipe</td>
+<td>Total Calories</td>
+<td>4,832.00</td>
 <td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Do thing 1</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Do thing 2</td>
-<td></td>
-<td></td>
-<td>Ingredient</td>
-</tr>
-<tr>
-<td>Do thing 3</td>
-<td></td>
-<td></td>
-<td>Beef - Ground</td>
-</tr>
-<tr>
 <td>Do thing 4</td>
-<td></td>
-<td></td>
-<td>Pork - Ground</td>
 </tr>
 <tr>
+<td>Per Serving</td>
+<td>322.13</td>
+<td></td>
 <td>Do thing 5</td>
-<td></td>
-<td></td>
-<td>Onion - Yellow</td>
 </tr>
 <tr>
+<td>Total Protein</td>
+<td>64.00</td>
+<td></td>
 <td>Do thing 6</td>
-<td></td>
-<td></td>
-<td>Breadcrumbs</td>
 </tr>
 <tr>
+<td>Per Serving</td>
+<td>4.27</td>
+<td></td>
 <td>Do thing 7</td>
-<td></td>
-<td></td>
-<td>Egg</td>
 </tr>
 <tr>
+<td>Total Fat</td>
+<td>154.00</td>
+<td></td>
 <td>Do thing 8</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
+<td>Per Serving</td>
+<td>10.27</td>
+<td></td>
 <td>Do thing 9</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
+<td>Total Carbs</td>
+<td>192.00</td>
+<td></td>
 <td>Do thing 10</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
+<td>Per Serving</td>
+<td>12.80</td>
+<td></td>
 <td>Do thing 11</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
+<td></td>
+<td></td>
+<td></td>
 <td>Do thing 12</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 </tbody></table></div>
 
 
 Total Cost: 15
 
-Cost Of Servings: $21.96
+Cost Of Servings: Dice onion and garlic 
 
 ## Nutrition Breakdown
 
@@ -110,102 +86,74 @@ Cost Of Servings: $21.96
 <th>Fat (oz)</th>
 </tr>
 </thead><tbody><tr>
-<td>Recipe</td>
+<td>Total Calories</td>
+<td>4,832.00</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Do thing 1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Do thing 2</td>
-<td></td>
-<td></td>
-<td>Ingredient</td>
-<td>Ingredient</td>
-</tr>
-<tr>
-<td>Do thing 3</td>
-<td></td>
-<td></td>
-<td>Beef - Ground</td>
-<td>Beef - Ground</td>
-</tr>
-<tr>
 <td>Do thing 4</td>
-<td></td>
-<td></td>
-<td>Pork - Ground</td>
-<td>Pork - Ground</td>
+<td>Do thing 4</td>
 </tr>
 <tr>
+<td>Per Serving</td>
+<td>322.13</td>
+<td></td>
 <td>Do thing 5</td>
-<td></td>
-<td></td>
-<td>Onion - Yellow</td>
-<td>Onion - Yellow</td>
+<td>Do thing 5</td>
 </tr>
 <tr>
+<td>Total Protein</td>
+<td>64.00</td>
+<td></td>
 <td>Do thing 6</td>
-<td></td>
-<td></td>
-<td>Breadcrumbs</td>
-<td>Breadcrumbs</td>
+<td>Do thing 6</td>
 </tr>
 <tr>
+<td>Per Serving</td>
+<td>4.27</td>
+<td></td>
 <td>Do thing 7</td>
-<td></td>
-<td></td>
-<td>Egg</td>
-<td>Egg</td>
+<td>Do thing 7</td>
 </tr>
 <tr>
+<td>Total Fat</td>
+<td>154.00</td>
+<td></td>
 <td>Do thing 8</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Do thing 8</td>
 </tr>
 <tr>
+<td>Per Serving</td>
+<td>10.27</td>
+<td></td>
 <td>Do thing 9</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Do thing 9</td>
 </tr>
 <tr>
+<td>Total Carbs</td>
+<td>192.00</td>
+<td></td>
 <td>Do thing 10</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Do thing 10</td>
 </tr>
 <tr>
+<td>Per Serving</td>
+<td>12.80</td>
+<td></td>
 <td>Do thing 11</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Do thing 11</td>
 </tr>
 <tr>
+<td></td>
+<td></td>
+<td></td>
 <td>Do thing 12</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Do thing 12</td>
 </tr>
 </tbody></table></div>
 
 
 Total Calories: 15
 
-Calories Of Servings: $21.96
+Calories Of Servings: Dice onion and garlic 
 
 <div style='page-break-after: always;'></div>
 <div style='page-break-after: always;'></div>
