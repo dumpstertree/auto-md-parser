@@ -26,8 +26,8 @@
 	- [transplant-tasks](transplant-tasks.md)
 # Tags
 - [Index]()
+	- [#food](tag-food.md)
+	- [#budgeting](tag-budgeting.md)
 	- [#plants](tag-plants.md)
 	- [#gardening](tag-gardening.md)
 	- [#off-grid](tag-off-grid.md)
-	- [#food](tag-food.md)
-	- [#budgeting](tag-budgeting.md)

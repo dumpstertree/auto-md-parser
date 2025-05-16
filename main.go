@@ -238,22 +238,33 @@ func parseCompoundCollumnString(input string, sheet string, row int, file *excel
 		if thisRune == '@' {
 
 			// set row to passed in row by default
-			r := []string{"", strconv.Itoa(row)}
+			cellAddress := ""
 
-			// use custom row
+			// add letter
 			if i+1 < len(strArr) && unicode.IsLetter(strArr[i+1]) {
-				r[0] = string(strArr[i+1])
+				cellAddress += string(strArr[i+1])
 				i++
 
-				// add letter
-				if i+1 < len(strArr) && unicode.IsDigit(strArr[i+1]) {
-					r[1] = string(strArr[i+1])
-					i++
+				// loop and keep adding digits until end
+				for {
+
+					if i+1 < len(strArr) && unicode.IsDigit(strArr[i+1]) {
+						// is digit
+						cellAddress += string(strArr[i+1])
+						i++
+					} else {
+						// not digit
+						break
+					}
 				}
 			}
 
+			// if only a letter add passed row
+			if len(cellAddress) == 1 {
+				cellAddress += strconv.Itoa(row)
+			}
+
 			// fetch for adress
-			cellAddress := r[0] + r[1]
 			fmt.Println(cellAddress)
 			val, err := file.GetCellValue(sheet, cellAddress)
 			if err != nil {

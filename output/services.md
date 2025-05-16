@@ -10,27 +10,27 @@
 <th>Address</th>
 </tr>
 </thead><tbody><tr>
-<td><img src=e16604b1-62bd-4467-ac25-270139562eb6.png></td>
+<td><img src=4713b5b3-618c-4859-b163-940f2e4b11f7.png></td>
 <td>Jellyfin</td>
 <td>Video</td>
 </tr>
 <tr>
-<td><img src=a09a34f0-9285-4c7c-afac-6634595bb173.png></td>
+<td><img src=93a2e976-233f-4d01-ae22-e579f461af80.png></td>
 <td>Azuracast</td>
 <td>Radio</td>
 </tr>
 <tr>
-<td><img src=620b9c16-edd1-4eda-97eb-f9e2b1964f42.png></td>
+<td><img src=ecd7b6fd-213a-44aa-8123-9dbdb84455b2.png></td>
 <td>Navidrome</td>
 <td>Music</td>
 </tr>
 <tr>
-<td><img src=c54f1c5d-8678-4570-9b2b-47e3c510e345.png></td>
+<td><img src=174a24c8-7edc-4aeb-83d1-44cca51b8202.png></td>
 <td>Jellyseer</td>
 <td>Video Requesting</td>
 </tr>
 <tr>
-<td><img src=71dbe430-4b24-4b46-9676-094a4a093892.png></td>
+<td><img src=09297d17-e4d7-49ae-97e2-81451f8de477.png></td>
 <td>AudioBookshelf</td>
 <td>Audio Books</td>
 </tr>
